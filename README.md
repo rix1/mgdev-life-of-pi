@@ -61,10 +61,11 @@ Resources is a useful and unique folder. It allows you to load an object or a fi
 I guess we have to figure this out as we go along, but as you can see in the /sprites/ folder, I will try to name the sprites according to where they are supposed to be used:
 
 	Sprites/
-		| - #_characters_map	// The # denotes "general" - *character* is a description and *map* implies <br>
-		|							that the image is a sprite sheet i.e. contains multiple sprites.
-		| - 1_bg_mountain		// *1* denotes the scene, *bg* is short for background, and <br>
-		|	 						*mountain* is a simple description.
+		| - #_characters_map	// The # denotes "general" - *character* is a description
+		|						and *map* implies that the image is a sprite sheet i.e. 
+		|						contains multiple sprites.
+		| - 1_bg_mountain		// *1* denotes the scene, *bg* is short for background,
+		|	 						and *mountain* is a simple description.
 		| - g1_button_map		// *g1* is short for game mode 1. 
 
 
