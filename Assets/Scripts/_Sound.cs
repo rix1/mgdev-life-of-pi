@@ -2,7 +2,7 @@
 using System.Collections;
 [RequireComponent(typeof(AudioSource))]
 
-public class Sound : MonoBehaviour {
+public class _Sound : MonoBehaviour {
 	AudioSource audio;
 
 	void Start () {

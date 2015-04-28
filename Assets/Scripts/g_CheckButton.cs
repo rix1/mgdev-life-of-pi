@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CheckButton : MonoBehaviour {
+public class g_CheckButton : MonoBehaviour {
 
 	public int WhatButton = 0;
 	public GameObject ErrorSound;
@@ -10,17 +10,17 @@ public class CheckButton : MonoBehaviour {
 
 	void Update () {
 		if (WhatButton == 1) {
-			transform.position = new Vector3(-1.38f, -4f, 0);
+			transform.position = new Vector3(-1.8f, -3.7f, 0);
 			transform.rotation = Quaternion.Euler(0,0,0);
 		}
 
 		if (WhatButton == 2) {
-			transform.position = new Vector3(0.12f, -4f, 0);
+			transform.position = new Vector3(0.0f, -3.7f, 0);
 			transform.rotation = Quaternion.Euler(0,0,0);
 		}
 
 		if (WhatButton == 3) {
-			transform.position = new Vector3 (1.51f, -4f, 0);
+			transform.position = new Vector3 (1.8f, -3.7f, 0);
 			transform.rotation = Quaternion.Euler (0, 0, 0);
 		}
 	}
@@ -30,36 +30,42 @@ public class CheckButton : MonoBehaviour {
 			Debug.Log("GREEN BUTTON");
 			if(over == true){
 				GameObject.Instantiate(RightSound, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
-				Maincode.song1score += 1;
+				g_Maincode.song1score += 1;
 				over = false;
 			}
 			if(over == false){
 				GameObject.Instantiate(ErrorSound, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
-				Maincode.song1score -= 0;
+				g_Maincode.song1score -= 0;
+				over = false;
+
 			}
 		}
 		if (WhatButton == 2) {
 			Debug.Log("RED BUTTON");
 			if(over == true){
 				GameObject.Instantiate(RightSound, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
-				Maincode.song1score += 1;
+				g_Maincode.song1score += 1;
 				over = false;
 			}
 			if(over == false){
 				GameObject.Instantiate(ErrorSound, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
-				Maincode.song1score -= 0;
+				g_Maincode.song1score -= 0;
+				over = false;
+
 			}
 		}
 		if (WhatButton == 3) {
 			Debug.Log("YELLOW BUTTON");
 			if(over == true){
 				GameObject.Instantiate(RightSound, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
-				Maincode.song1score += 1;
+				g_Maincode.song1score += 1;
 				over = false;
 			}
 			if(over == false){
 				GameObject.Instantiate(ErrorSound, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
-				Maincode.song1score -= 0;
+				g_Maincode.song1score -= 0;
+				over = false;
+
 			}
 		}
 	}

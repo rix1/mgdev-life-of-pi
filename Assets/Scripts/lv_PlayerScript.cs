@@ -17,7 +17,7 @@ using System.Collections;
 	OnTriggerExit2D(Collider2D otherCollider) is invoked when another collider marked as a "Trigger" is not touching this object collider anymore.
  **/
 
-public class PlayerScript : MonoBehaviour {
+public class lv_PlayerScript : MonoBehaviour {
 	
 
 	// Max speed....

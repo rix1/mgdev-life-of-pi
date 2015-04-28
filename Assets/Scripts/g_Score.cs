@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Score : MonoBehaviour {
+public class g_Score : MonoBehaviour {
 	public GUIText score;
 
 	void OnGUI(){
-		score.text = "Score: " + Maincode.song1score ;
+		score.text = "Score: " + g_Maincode.song1score ;
 	}
 }

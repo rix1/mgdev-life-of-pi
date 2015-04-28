@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class TouchInput : MonoBehaviour {
+public class _TouchInput : MonoBehaviour {
 
 	public LayerMask touchInputMask;
 

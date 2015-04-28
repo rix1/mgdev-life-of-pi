@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Note : MonoBehaviour {
+public class g_Note : MonoBehaviour {
 	public float zPos;
 
 	void Start () {
