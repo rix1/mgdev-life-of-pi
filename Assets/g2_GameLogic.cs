@@ -1,14 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
 
 public class g2_GameLogic : MonoBehaviour {
+
+	private List<GameObject> pattern = new List<GameObject>();
 
 	public GameObject green;
 	public GameObject yellow;
 	public GameObject red;
 	public GameObject purple;
 
-
+	public List<GameObject> patterns = new List<GameObject>();
+	public List<Vector3> spawnLoc = new List<Vector3>();
+	
 	private Vector3 spawnLoc1 = new Vector3(-1.5f , 2.5f,0f); 
 	private Vector3 spawnLoc2 = new Vector3(-0.5f ,2.5f,0f); 
 	private Vector3 spawnLoc3 = new Vector3(0.5f ,2.5f,0f); 
@@ -17,40 +23,39 @@ public class g2_GameLogic : MonoBehaviour {
 	private Quaternion rotation = Quaternion.Euler(0,0,0);
 
 	void Start () {
-		pattern2 ();
+		pattern.Add (green);
+		pattern.Add (yellow);
+		pattern.Add (red);
+		pattern.Add (purple);
+		
+		spawnLoc.Add (spawnLoc1);
+		spawnLoc.Add (spawnLoc2);
+		spawnLoc.Add (spawnLoc3);
+		spawnLoc.Add (spawnLoc4);
+
+		populatePattern();
+	
+		instantiatePattern (patterns, spawnLoc);
+
 	}
 
-
-	void pattern1(){
-		GameObject.Instantiate(red, spawnLoc1, rotation);
-		GameObject.Instantiate(green, spawnLoc2, rotation);
-		GameObject.Instantiate(yellow, spawnLoc3, rotation);
-		GameObject.Instantiate(purple, spawnLoc4, rotation);
+	void instantiatePattern(List<GameObject> patterns,List<Vector3> spawnLoc){
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; i < 4; i++) {
+				GameObject.Instantiate (patterns [i], spawnLoc[i], rotation);
+			}
+		}
 	}
 
-	void pattern2(){
-		GameObject.Instantiate(purple, spawnLoc1, rotation);
-		GameObject.Instantiate(green, spawnLoc2, rotation);
-		GameObject.Instantiate(red, spawnLoc3, rotation);
-		GameObject.Instantiate(yellow, spawnLoc4, rotation);
+	List<GameObject> populatePattern(){
+		for (int i = 0; i < 4; i++) {
+			patterns.Add(pattern[Random.Range(0,3)]);
+		}
+		Debug.Log ("patterns: " + patterns[0]);
+
+		return patterns;
 	}
-
-	void pattern3(){
-		GameObject.Instantiate(green, spawnLoc1, rotation);
-		GameObject.Instantiate(red, spawnLoc2, rotation);
-		GameObject.Instantiate(purple, spawnLoc3, rotation);
-		GameObject.Instantiate(purple, spawnLoc4, rotation);
-	}
-
-	void pattern4(){
-		GameObject.Instantiate(yellow, spawnLoc1, rotation);
-		GameObject.Instantiate(red, spawnLoc2, rotation);
-		GameObject.Instantiate(yellow, spawnLoc3, rotation);
-		GameObject.Instantiate(purple, spawnLoc4, rotation);
-	}
-
-
-
+	
 	void Update () {
 	
 	}

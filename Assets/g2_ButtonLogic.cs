@@ -4,7 +4,10 @@ using System.Collections.Generic;
 
 public class g2_ButtonLogic : MonoBehaviour {
 
-	//private List<GameObject> patterns = new List<GameObject>();
+	public g2_GameLogic gameLogic;
+
+	public List<GameObject> patterns = new List<GameObject>();
+
 	public int WhatButton = 0;
 	public GameObject sound;
 
@@ -34,23 +37,24 @@ public class g2_ButtonLogic : MonoBehaviour {
 	}
 
 	void OnTouchDown(Vector2 point){
-		//for (int i = 0; i < 4; i++) {
-			if (WhatButton == 1) {
-				Debug.Log ("GREEN BUTTON");
-				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
-			}
-			if (WhatButton == 2) {
-				Debug.Log ("YELLOW BUTTON");
-				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
+		if (WhatButton == 1) {
+			Debug.Log ("GREEN BUTTON");
+			GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
+		}
 
+		if (WhatButton == 2) {
+			Debug.Log ("YELLOW BUTTON");
+			GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
+		}
+
+		if (WhatButton == 3) {
+			Debug.Log ("RED BUTTON");
+			GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 			}
-			if (WhatButton == 3) {
-				Debug.Log ("RED BUTTON");
-				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
-			}
-			if (WhatButton == 4) {
-				Debug.Log ("PURPLE BUTTON");
-				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
-			}
+
+		if (WhatButton == 4) {	
+			Debug.Log ("PURPLE BUTTON");
+			GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
+		}
 	}
 }
