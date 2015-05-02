@@ -56,8 +56,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WhatButton: 1
-  ErrorSound: {fileID: 0}
-  RightSound: {fileID: 0}
+  ErrorSound: {fileID: 193042, guid: 215bf75ba51564b919be983b7973b500, type: 2}
+  RightSound: {fileID: 154088, guid: 19ac77ce01ff2460c9979931b8a3655b, type: 2}
 --- !u!114 &11495294
 MonoBehaviour:
   m_ObjectHideFlags: 1

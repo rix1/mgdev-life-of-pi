@@ -9,7 +9,6 @@ public class g_Note : MonoBehaviour {
 	}
 	
 	void Update () {
-		zPos = 0;
 		transform.position += (new Vector3(0f, -5, 0f) * Time.deltaTime);
 	}
 

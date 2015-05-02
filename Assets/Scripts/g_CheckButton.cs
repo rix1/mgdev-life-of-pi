@@ -4,9 +4,9 @@ using System.Collections;
 public class g_CheckButton : MonoBehaviour {
 
 	public int WhatButton = 0;
-	public GameObject ErrorSound;
-	public GameObject RightSound;
+	public GameObject Particles;
 	public bool over = false;
+
 
 	void Update () {
 		if (WhatButton == 1) {
@@ -29,54 +29,52 @@ public class g_CheckButton : MonoBehaviour {
 		if (WhatButton == 1) {
 			Debug.Log("GREEN BUTTON");
 			if(over == true){
-				GameObject.Instantiate(RightSound, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
+				GameObject.Instantiate(Particles, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
 				g_Maincode.song1score += 1;
-				over = false;
 			}
 			if(over == false){
-				GameObject.Instantiate(ErrorSound, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
 				g_Maincode.song1score -= 0;
-				over = false;
-
 			}
+			over = false;
+
 		}
 		if (WhatButton == 2) {
-			Debug.Log("RED BUTTON");
-			if(over == true){
-				GameObject.Instantiate(RightSound, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
-				g_Maincode.song1score += 1;
-				over = false;
-			}
-			if(over == false){
-				GameObject.Instantiate(ErrorSound, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
-				g_Maincode.song1score -= 0;
-				over = false;
-
-			}
-		}
-		if (WhatButton == 3) {
 			Debug.Log("YELLOW BUTTON");
 			if(over == true){
-				GameObject.Instantiate(RightSound, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
 				g_Maincode.song1score += 1;
-				over = false;
-			}
-			if(over == false){
-				GameObject.Instantiate(ErrorSound, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
-				g_Maincode.song1score -= 0;
-				over = false;
+				GameObject.Instantiate(Particles, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
 
 			}
+			if(over == false){
+				g_Maincode.song1score -= 0;
+			}
+			over = false;
+
+		}
+		if (WhatButton == 3) {
+			Debug.Log("RED BUTTON");
+			if(over == true){
+				GameObject.Instantiate(Particles, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
+				g_Maincode.song1score += 1;
+			}
+			if(over == false){
+				g_Maincode.song1score -= 0;
+
+			}
+			over = false;
+
 		}
 	}
 
 	void OnCollisionEnter2D(Collision2D other){
+		Debug.Log ("enter");
 		if (other.gameObject.tag == "Note") {
 			over = true;
 		}
 	}
 
 	void OnCollisionExit2D(Collision2D other){
+		Debug.Log ("exit");
 		if(other.gameObject.tag == "Note") {
 			over = false;
 		}
@@ -84,8 +82,7 @@ public class g_CheckButton : MonoBehaviour {
 
 	void OnCollisionStay2D(Collision2D other){
 		if (other.gameObject.tag == "Note") {
-			
-			if (Input.GetButtonDown ("1")) {
+			if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began){
 				if (WhatButton == 1) {
 					if (over == true) {
 						Destroy (other.gameObject);
@@ -93,21 +90,23 @@ public class g_CheckButton : MonoBehaviour {
 				}
 			}
 			
-			if (Input.GetButtonDown ("2")) {
+			if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began){
+
 				if (WhatButton == 2) {
 					if (over == true) {
 						Destroy (other.gameObject);
 					}
 				}
 			}
-			
-			if (Input.GetButtonDown ("3")) {	
+			if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began){
+
 				if (WhatButton == 3) {	
 					if (over == true) {
 						Destroy (other.gameObject);
 					}
 				}	
 			}
+
 		}
 	}
 }
