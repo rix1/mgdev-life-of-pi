@@ -41,7 +41,9 @@ public class lv_PlayerScript : MonoBehaviour {
 
 	void FixedUpdate() {
 		// 5 - Move the game object
-		GetComponent<Rigidbody2D>().velocity = movement;
+		GetComponent<Rigidbody2D>().velocity =  movement;
+
+
 //		Debug.Log (movement.x + " : " + movement.y);
 		
 	}
