@@ -30,10 +30,10 @@ public class g_CheckButton : MonoBehaviour {
 			Debug.Log("GREEN BUTTON");
 			if(over == true){
 				GameObject.Instantiate(Particles, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
-				g_Maincode.song1score += 1;
+				g3_Maincode.song1score += 1;
 			}
 			if(over == false){
-				g_Maincode.song1score -= 0;
+				g3_Maincode.song1score -= 0;
 			}
 			over = false;
 
@@ -41,12 +41,12 @@ public class g_CheckButton : MonoBehaviour {
 		if (WhatButton == 2) {
 			Debug.Log("YELLOW BUTTON");
 			if(over == true){
-				g_Maincode.song1score += 1;
+				g3_Maincode.song1score += 1;
 				GameObject.Instantiate(Particles, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
 
 			}
 			if(over == false){
-				g_Maincode.song1score -= 0;
+				g3_Maincode.song1score -= 0;
 			}
 			over = false;
 
@@ -55,10 +55,10 @@ public class g_CheckButton : MonoBehaviour {
 			Debug.Log("RED BUTTON");
 			if(over == true){
 				GameObject.Instantiate(Particles, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
-				g_Maincode.song1score += 1;
+				g3_Maincode.song1score += 1;
 			}
 			if(over == false){
-				g_Maincode.song1score -= 0;
+				g3_Maincode.song1score -= 0;
 
 			}
 			over = false;
