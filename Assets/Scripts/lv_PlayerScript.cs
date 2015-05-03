@@ -19,32 +19,78 @@ using System.Collections;
 
 public class lv_PlayerScript : MonoBehaviour {
 	
-
 	// Max speed....
 	public Vector2 speed = new Vector2(50,50);
 	public static Vector2 movement;
 
+	private Vector3 goTo_new;
+	private Vector3 goTo_old;
+	private Vector3 currentPosition;
+	private bool pos;
+	private bool moving;
+	
 
 
 	// Use this for initialization
 	void Start () {
+		goTo_new = new Vector3 (0, 0, 0);
+		goTo_old = new Vector3 (0, 0, 0);
 		Debug.Log("HEISANN PLAYA");
+		moving = false;
+	}
+
+	void move(Vector3 currentPos, Vector3 moveTo){
+//		transform.position = moveTo;
+
+		float inputX = 1;
+		float inputY = 0;
+
+		if (currentPos.x > moveTo.x) {
+			inputX = -1;
+			pos = false;
+		} else {
+			pos = true;
+			inputX = 1;
+		}
+
+		movement = new Vector2 (speed.x * inputX, speed.y * inputY);
+		moving = true;
+		goTo_old = moveTo;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		float inputX = Input.GetAxis ("Horizontal");
-		float inputY = Input.GetAxis ("Vertical");
+		currentPosition = transform.position;
+		
+		goTo_new = GameObject.Find("Touch").GetComponent<_perspectiveTouch>().touchpoint;
+		if (goTo_new != goTo_old) {
+			Debug.Log ("Lets move");
+			// Move in new direction
 
-		movement = new Vector2 (speed.x * inputX, speed.y * inputY);
+			move (currentPosition, goTo_new);
+		} 
+
+		if (moving) {
+			if (pos) {
+				Debug.Log (currentPosition.x + ", old: " + goTo_old.x + ", new: " + goTo_new);
+				if (currentPosition.x > goTo_old.x) {
+					movement = new Vector2 (0, 0);
+					Debug.Log ("STOOOP");
+					moving = false;
+				}
+			} else {
+				Debug.Log (currentPosition.x + ", old: " + goTo_old.x + ", new: " + goTo_new);
+				if (currentPosition.x < goTo_old.x) {
+					movement = new Vector2 (0, 0);
+					Debug.Log ("STOOOP");
+					moving = false;
+				}
+			}
+		}
 	}
 
 	void FixedUpdate() {
 		// 5 - Move the game object
 		GetComponent<Rigidbody2D>().velocity =  movement;
-
-
-//		Debug.Log (movement.x + " : " + movement.y);
-		
 	}
 }

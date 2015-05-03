@@ -409,7 +409,7 @@ GameObject:
   - 58: {fileID: 1469109051}
   - 50: {fileID: 1469109050}
   - 114: {fileID: 1469109054}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -533,7 +533,7 @@ GameObject:
   - 4: {fileID: 1776939665}
   - 212: {fileID: 1776939666}
   - 68: {fileID: 1776939667}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mountain1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -622,6 +622,50 @@ EdgeCollider2D:
   - {x: 9.73705006, y: 1.47593784}
   - {x: 10.777998, y: 1.76535654}
   - {x: 11.023942, y: 3.84854889}
+--- !u!1 &2070874220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2070874222}
+  - 114: {fileID: 2070874221}
+  m_Layer: 0
+  m_Name: Touch
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2070874221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2070874220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06290610733f84774858822d1c2da66f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Particles1: {fileID: 187930, guid: bf4a03471af964bd9ab36037a6dcb071, type: 2}
+  Particles2: {fileID: 104748, guid: 72bf530afb5e34c669417f43a101fbd2, type: 2}
+  test: {fileID: 0}
+  touchpoint: {x: 0, y: 0, z: 0}
+  sortingOrder: 14
+--- !u!4 &2070874222
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2070874220}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .178573087, y: -3.17310905, z: .75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
 --- !u!1 &2106333321
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +678,7 @@ GameObject:
   - 92: {fileID: 2106333325}
   - 124: {fileID: 2106333324}
   - 81: {fileID: 2106333323}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -648,8 +692,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2106333321}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10, z: -65.1999969}
-  m_LocalScale: {x: 5.36759996, y: 5.36760044, z: 1.07352006}
+  m_LocalPosition: {x: 0, y: 10, z: -58.9199982}
+  m_LocalScale: {x: 5.36760044, y: 5.36760044, z: 1.07352006}
   m_Children: []
   m_Father: {fileID: 1469109049}
   m_RootOrder: 0
@@ -693,7 +737,7 @@ Camera:
   near clip plane: .00999999978
   far clip plane: 73.3000031
   field of view: 10
-  orthographic: 1
+  orthographic: 0
   orthographic size: 6.5
   m_Depth: -1
   m_CullingMask:
