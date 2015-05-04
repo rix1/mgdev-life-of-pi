@@ -28,8 +28,15 @@ public class lv_PlayerScript : MonoBehaviour {
 	private Vector3 currentPosition;
 	private bool pos;
 	private bool moving;
-	
+	public bool debug;
 
+	public int getDir(){
+		if (moving) {
+			return pos ? 1 : -1;
+		} else {
+			return 0;
+		}
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -37,6 +44,7 @@ public class lv_PlayerScript : MonoBehaviour {
 		goTo_old = new Vector3 (0, 0, 0);
 		Debug.Log("HEISANN PLAYA");
 		moving = false;
+		debug = true;
 	}
 
 	void move(Vector3 currentPos, Vector3 moveTo){
@@ -63,29 +71,36 @@ public class lv_PlayerScript : MonoBehaviour {
 		currentPosition = transform.position;
 		
 		goTo_new = GameObject.Find("Touch").GetComponent<_perspectiveTouch>().touchpoint;
-		if (goTo_new != goTo_old) {
-			Debug.Log ("Lets move");
-			// Move in new direction
 
-			move (currentPosition, goTo_new);
-		} 
+		if (!debug) {
+			if (goTo_new != goTo_old) {
+				Debug.Log ("Lets move");
+				// Move in new direction
 
-		if (moving) {
-			if (pos) {
-				Debug.Log (currentPosition.x + ", old: " + goTo_old.x + ", new: " + goTo_new);
-				if (currentPosition.x > goTo_old.x) {
-					movement = new Vector2 (0, 0);
-					Debug.Log ("STOOOP");
-					moving = false;
-				}
-			} else {
-				Debug.Log (currentPosition.x + ", old: " + goTo_old.x + ", new: " + goTo_new);
-				if (currentPosition.x < goTo_old.x) {
-					movement = new Vector2 (0, 0);
-					Debug.Log ("STOOOP");
-					moving = false;
+				move (currentPosition, goTo_new);
+			} 
+
+			if (moving) {
+				if (pos) {
+					Debug.Log (currentPosition.x + ", old: " + goTo_old.x + ", new: " + goTo_new);
+					if (currentPosition.x > goTo_old.x) {
+						movement = new Vector2 (0, 0);
+						Debug.Log ("STOOOP");
+						moving = false;
+					}
+				} else {
+					Debug.Log (currentPosition.x + ", old: " + goTo_old.x + ", new: " + goTo_new);
+					if (currentPosition.x < goTo_old.x) {
+						movement = new Vector2 (0, 0);
+						Debug.Log ("STOOOP");
+						moving = false;
+					}
 				}
 			}
+		} else {
+			float inputX = Input.GetAxis ("Horizontal");
+			float inputY = Input.GetAxis ("Vertical");
+			movement = new Vector2 (speed.x * inputX, speed.y * inputY);
 		}
 	}
 

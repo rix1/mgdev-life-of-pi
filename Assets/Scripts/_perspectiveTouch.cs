@@ -1,4 +1,4 @@
-using UnityEngine;
+	using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -7,6 +7,8 @@ public class _perspectiveTouch : MonoBehaviour {
 	public GameObject Particles1;
 	public GameObject Particles2;
 	public GameObject test;
+
+	public BoxCollider2D collider2D;
 
 	public Vector3 touchpoint;
 
@@ -42,7 +44,15 @@ public class _perspectiveTouch : MonoBehaviour {
 
 			Debug.Log("WorldPoint coord: " + w.x  + ":" + w.y*-1);
 
-//			Vector3 wp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+
+			Vector2 touchPos = new Vector2(w.x, w.y);
+
+
+			if (collider2D == Physics2D.OverlapPoint(touchPos)){
+				Application.LoadLevel("GameMode3");
+			}
+			
+			//			Vector3 wp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
 //			Vector2 touchPos = new Vector2(wp.x, wp.y);
 
 //			if (GetComponent<Collider2D>() == Physics2D.OverlapPoint()){
