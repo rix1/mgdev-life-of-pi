@@ -5,79 +5,95 @@ public class g2_Timer : MonoBehaviour {
 	private float originalValueLeft;
 	private float originalValueRight;
 	private float maxScale;
-	public bool gameOver;
+	public  bool gameOver;
 	public bool neg = false;
 	public bool pos = false;
+	private Vector3 originalScale;
 
-
-	public void setPos(){
-		pos = true;
-	}
-
-	public void setNeg(){
-		neg = true;
-	}
+	public float decreaseTimer = -0.05f;
+	public float negTimer = -0.05f;
+	public float posTimer = 0.2f;
 
 	void Start () {
-		maxScale = transform.localScale.x;
-
 		originalValueLeft = GetComponent<Renderer>().bounds.min.x;
 		originalValueRight = GetComponent<Renderer>().bounds.max.x;
-
-		Debug.Log("Right: " + originalValueRight);
 		gameOver = false;
-		
 
+		maxScale = transform.localScale.x;
+		originalScale = new Vector3(1.12f,0.03f,1);
 	}
 	
 	void Update () {
 		
 		if (transform.localScale.x >= 0) {
-			updateSize(-0.05f);
+			updateTimerSize(decreaseTimer);
 
 		} else if(!gameOver){
-			Debug.Log("Game DONE");
 			gameOver = true;
-			Debug.Log("Loading level..");
-			Application.LoadLevel("GameMode3");
+			gameFinishedLogic();
 		}
 
 		if (neg) {
-			updateSize(-0.2f);
+			updateSize(negTimer);
 			neg = false;
 		}
 		if (pos) {
-			updateSize(40f);
+			updateSize(posTimer);
 			pos = false;
 		}
 	}
 
+	public void setPos(){
+		pos = true;
+	}
+	
+	public void setNeg(){
+		neg = true;
+	}
+
 	void updateSize(float x){
-
+		//increase size of health bar when correct pattern
 		if (x > 0) {
-			float x2 = 0;
-			float x3 = x * Time.deltaTime;
-		
-			float total = x3 + transform.localScale.x;
-
-			Debug.Log("total " + total);
+			float total = x + transform.localScale.x;
+			//if added positive = bigger than the original health bar, only fill up 
 			if(total > maxScale){
-				x2 = maxScale - transform.localScale.x;
-				Debug.Log("Adding a little: " + x2);
-			}else{
-				x2 = x;
-				Debug.Log("Adding a lot: " + x2);
+				transform.localScale = originalScale;
 			}
-
-			transform.localScale += new Vector3 (x2, 0f, 0f) * Time.deltaTime;
-
-		} else {
-			float x2 = Mathf.Abs(x);
-			transform.localScale -= new Vector3 (x2, 0f, 0f) * Time.deltaTime;
+			//increse size of health bar
+			else{
+				transform.localScale += new Vector3 (x, 0f, 0f);
+			}
 		}
 
+		//decrease size of health bar when wrong pattern
+		else {
+			float x2 = Mathf.Abs(x);
+			transform.localScale -= new Vector3 (x2, 0f, 0f);
+		}
 		float newValueLeft = GetComponent<Renderer> ().bounds.min.x;
 		float difference = newValueLeft - originalValueLeft;
 		transform.Translate (new Vector3 (-difference, 0f, 0f));
+	}
+
+	//constantly decrease size of health bar
+	void updateTimerSize(float x){
+		float x2 = Mathf.Abs(x);
+		transform.localScale -= new Vector3 (x2, 0f, 0f) * Time.deltaTime;
+		//update position so that the timer always stays left
+		float newValueLeft = GetComponent<Renderer> ().bounds.min.x;
+		float difference = newValueLeft - originalValueLeft;
+		transform.Translate (new Vector3 (-difference, 0f, 0f));
+	}
+
+	void gameFinishedLogic(){
+		if (g2_Maincode.score < g2_Maincode.minPatterns) {
+			g2_Maincode.score = 0;
+			Application.LoadLevel ("g2_GameOver");
+		} 
+		else {
+			g2_Maincode.score = 0;
+			g2_Maincode.highscore = g2_Maincode.score;
+			Application.LoadLevel ("g2_GameOverWon");
+		}
 	}
 }

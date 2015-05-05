@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -14,7 +14,11 @@ public class g2_GameLogic : MonoBehaviour {
 	public GameObject red;
 	public GameObject purple;
 
-	public List<GameObject> patterns = new List<GameObject>();
+	public List<GameObject> currentPattern = new List<GameObject>();
+	public List<GameObject> prevPattern = new List<GameObject>();
+	public List<GameObject> nextPattern = new List<GameObject>();
+
+	
 
 	public List<Vector3> spawnLocPrev = new List<Vector3>();
 	public List<Vector3> spawnLocCurrent = new List<Vector3>();
@@ -63,7 +67,7 @@ public class g2_GameLogic : MonoBehaviour {
 
 	public void generatePattern(){
 		populatePattern();
-		instantiatePattern (patterns, spawnLocCurrent);
+		instantiatePattern (currentPattern, spawnLocCurrent);
 		Debug.Log("New pattern generated: " + string.Join(" - ", stringPattern.ToArray()));
 	}
 
@@ -76,18 +80,20 @@ public class g2_GameLogic : MonoBehaviour {
 	}
 
 	//TODO Save previousPattern 
+	void getPrevPattern(){
+		prevPattern = currentPattern;
+	}
 
 	//TODO Get nextPattern
-
-
 	void populatePattern(){
 		stringPattern.Clear();
-		patterns.Clear ();
+
+		currentPattern.Clear ();
 
 		GameObject random;
 		for (int i = 0; i < 4; i++) {
 			random = pattern[Random.Range(0,4)];
-			patterns.Add(random);
+			currentPattern.Add(random);
 			stringPattern.Add(random.transform.name);
 		}
 	}

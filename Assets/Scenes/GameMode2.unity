@@ -379,6 +379,7 @@ Prefab:
         type: 3}
     m_RemovedComponents:
     - {fileID: 11449256, guid: cd28185763ae94fd4961f10dcc09eead, type: 2}
+    - {fileID: 5013416, guid: cd28185763ae94fd4961f10dcc09eead, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: cd28185763ae94fd4961f10dcc09eead, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &939397608 stripped
@@ -470,6 +471,9 @@ MonoBehaviour:
   gameOver: 0
   neg: 0
   pos: 0
+  decreaseTimer: -.0500000007
+  negTimer: -.100000001
+  posTimer: .200000003
 --- !u!1001 &1275932798
 Prefab:
   m_ObjectHideFlags: 0

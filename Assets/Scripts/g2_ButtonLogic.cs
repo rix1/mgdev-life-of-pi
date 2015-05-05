@@ -56,67 +56,71 @@ public class g2_ButtonLogic : MonoBehaviour {
 		}
 
 		if (WhatButton == 1) {
-//			Debug.Log ("GREEN BUTTON " + currentPattern [i]);
-			
 			if (currentPattern [i] == "greenPattern") {
 				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				i++;
 			} else {
+				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
+				
+				GameObject.Find("Timer").GetComponent<g2_Timer>().setNeg();
 				i = 0;
 			}
 		}
 
 		if (WhatButton == 2) {
-//			Debug.Log ("YELLOW BUTTON " + currentPattern [i]);
-
 			if (currentPattern [i] == "yellowPattern") {
 				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
-
 				i++;
 			} else {
+				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
+				
+				GameObject.Find("Timer").GetComponent<g2_Timer>().setNeg();
 				i = 0;
 			}
 		}
 
 		if (WhatButton == 3) {
-//			Debug.Log ("RED BUTTON " + currentPattern [i]);
 			if (currentPattern [i] == "redPattern") {
 				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				i++;
 			} else {
+				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
+				GameObject.Find("Timer").GetComponent<g2_Timer>().setNeg();
 				i = 0;
 			}
 		}
 
 		if (WhatButton == 4) {	
-//			Debug.Log ("PURPLE BUTTON " + currentPattern [i]);
 			if (currentPattern [i] == "purplePattern") {
 				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				i++;
 			} else {
-
+				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
+				
+				GameObject.Find("Timer").GetComponent<g2_Timer>().setNeg();
 				i = 0;
 			}
 		}
 
 
 		if (i < 4) {
+
 //			Debug.Log ("i is: " + i + " button to be pushed: " + currentPattern [i]);
 		} else {
 
 			// Someone just succeeded. We should reward them with a score, 
-			// some more time and a new pattern.
-
 			g2_Maincode.score+=1;
+
+			// more time 
 			GameObject.Find("Timer").GetComponent<g2_Timer>().setPos();
-			Debug.Log("after score: " + timerPos );
+
+			//and a new pattern.
 			GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<g2_GameLogic>().generatePattern();
 			setCurrentPattern();
-			Debug.Log("game over: ");
 		}
 
 	}
