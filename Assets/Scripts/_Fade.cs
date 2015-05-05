@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class g_Particle : MonoBehaviour {
+public class _Fade : MonoBehaviour {
 	private int timer;
 	public float zPos;
 

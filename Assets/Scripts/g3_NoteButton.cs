@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class g_NoteButton : MonoBehaviour {
+public class g3_NoteButton : MonoBehaviour {
 	public int WhatButton = 1;
 	private Transform objectButton;
 

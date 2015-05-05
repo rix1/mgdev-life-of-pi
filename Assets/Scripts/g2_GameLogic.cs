@@ -86,7 +86,7 @@ public class g2_GameLogic : MonoBehaviour {
 
 		GameObject random;
 		for (int i = 0; i < 4; i++) {
-			random = pattern[Random.Range(0,3)];
+			random = pattern[Random.Range(0,4)];
 			patterns.Add(random);
 			stringPattern.Add(random.transform.name);
 		}
@@ -97,6 +97,7 @@ public class g2_GameLogic : MonoBehaviour {
 	}
 
 	void Update () {
-	
+
 	}
+
 }

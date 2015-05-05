@@ -1,16 +1,21 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
 public class g2_ButtonLogic : MonoBehaviour {
-	
+
 	public List<GameObject> patterns = new List<GameObject>();
 
 	public int WhatButton = 0;
 	public GameObject sound;
+
+	public GameObject particleEffect;
 	
 	private static int i = 0;
 	private List<string> currentPattern;
+
+	private bool timerNeg;
+	private bool timerPos;
 
 	void Start () {
 		setCurrentPattern ();
@@ -21,9 +26,8 @@ public class g2_ButtonLogic : MonoBehaviour {
 		g2_GameLogic gamelogic = other.GetComponent<g2_GameLogic> ();
 		currentPattern = gamelogic.stringPattern;
 	}
-		
-		void Update () {
 
+	void Update () {
 		if (WhatButton == 1) {
 			transform.position = new Vector3(-1f, -1f, 0);
 			transform.rotation = Quaternion.Euler(0,0,0);
@@ -52,10 +56,11 @@ public class g2_ButtonLogic : MonoBehaviour {
 		}
 
 		if (WhatButton == 1) {
-			Debug.Log ("GREEN BUTTON " + currentPattern [i]);
+//			Debug.Log ("GREEN BUTTON " + currentPattern [i]);
 			
 			if (currentPattern [i] == "greenPattern") {
 				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
+				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				i++;
 			} else {
 				i = 0;
@@ -63,10 +68,12 @@ public class g2_ButtonLogic : MonoBehaviour {
 		}
 
 		if (WhatButton == 2) {
-			Debug.Log ("YELLOW BUTTON " + currentPattern [i]);
+//			Debug.Log ("YELLOW BUTTON " + currentPattern [i]);
 
 			if (currentPattern [i] == "yellowPattern") {
 				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
+				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
+
 				i++;
 			} else {
 				i = 0;
@@ -74,9 +81,10 @@ public class g2_ButtonLogic : MonoBehaviour {
 		}
 
 		if (WhatButton == 3) {
-			Debug.Log ("RED BUTTON " + currentPattern [i]);
+//			Debug.Log ("RED BUTTON " + currentPattern [i]);
 			if (currentPattern [i] == "redPattern") {
 				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
+				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				i++;
 			} else {
 				i = 0;
@@ -84,25 +92,33 @@ public class g2_ButtonLogic : MonoBehaviour {
 		}
 
 		if (WhatButton == 4) {	
-			Debug.Log ("PURPLE BUTTON " + currentPattern [i]);
+//			Debug.Log ("PURPLE BUTTON " + currentPattern [i]);
 			if (currentPattern [i] == "purplePattern") {
 				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
+				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				i++;
 			} else {
+
 				i = 0;
 			}
 		}
 
-		// TODO: Check if i 
 
 		if (i < 4) {
-			Debug.Log ("i is: " + i + " button to be pushed: " + currentPattern [i]);
+//			Debug.Log ("i is: " + i + " button to be pushed: " + currentPattern [i]);
 		} else {
-			Debug.Log("Generating new!");
+
+			// Someone just succeeded. We should reward them with a score, 
+			// some more time and a new pattern.
+
 			g2_Maincode.score+=1;
-			// Someone just succeeded. We should reward them with a new pattern.
+			GameObject.Find("Timer").GetComponent<g2_Timer>().setPos();
+			Debug.Log("after score: " + timerPos );
 			GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<g2_GameLogic>().generatePattern();
 			setCurrentPattern();
+			Debug.Log("game over: ");
 		}
+
 	}
+
 }

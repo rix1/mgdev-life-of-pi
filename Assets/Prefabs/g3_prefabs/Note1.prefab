@@ -10,8 +10,8 @@ GameObject:
   - 4: {fileID: 438550}
   - 212: {fileID: 21215104}
   - 58: {fileID: 5843172}
-  - 114: {fileID: 11495294}
-  - 114: {fileID: 11472614}
+  - 114: {fileID: 11499646}
+  - 114: {fileID: 11472950}
   m_Layer: 0
   m_Name: Note1
   m_TagString: Note
@@ -44,7 +44,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .74000001
---- !u!114 &11472614
+--- !u!114 &11472950
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -52,13 +52,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 197776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99b4a7bf918b24f6a86c9402fb44200a, type: 3}
+  m_Script: {fileID: 11500000, guid: 50b6d237a54f641308379a4ebed97019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WhatButton: 1
-  ErrorSound: {fileID: 193042, guid: 215bf75ba51564b919be983b7973b500, type: 2}
-  RightSound: {fileID: 154088, guid: 19ac77ce01ff2460c9979931b8a3655b, type: 2}
---- !u!114 &11495294
+--- !u!114 &11499646
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -66,7 +64,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 197776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04842cb0382bc442090487f3cd9b78dd, type: 3}
+  m_Script: {fileID: 11500000, guid: da41f3507f56040c390bf7fa6bd55474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   zPos: 0

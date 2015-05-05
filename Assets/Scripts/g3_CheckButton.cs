@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class g_CheckButton : MonoBehaviour {
+public class g3_CheckButton : MonoBehaviour {
 
 	public int WhatButton = 0;
 	public GameObject Particles;

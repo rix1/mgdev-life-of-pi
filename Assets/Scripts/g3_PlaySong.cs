@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class _PlaySong : MonoBehaviour {
+public class g3_PlaySong : MonoBehaviour {
 
 	public GameObject green;
 	public GameObject red;
@@ -39,8 +39,7 @@ public class _PlaySong : MonoBehaviour {
 		yield return new WaitForSeconds(.2f);
 		GameObject.Instantiate(yellow, spawnLoc3, rotation);
 		yield return new WaitForSeconds(.2f);
-		GameObject.Instantiate(green, spawnLoc1, rotation);
-		yield return new WaitForSeconds(.2f);
+		GameObject.Instantiate(green, spawnLoc1, rotation);;
 		GameObject.Instantiate(red, spawnLoc2, rotation);
 		yield return new WaitForSeconds(.2f);
 		GameObject.Instantiate(yellow, spawnLoc3, rotation);

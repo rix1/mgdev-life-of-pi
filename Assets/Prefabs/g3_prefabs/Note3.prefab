@@ -52,7 +52,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 123920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04842cb0382bc442090487f3cd9b78dd, type: 3}
+  m_Script: {fileID: 11500000, guid: da41f3507f56040c390bf7fa6bd55474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   zPos: 0
@@ -64,12 +64,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 123920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99b4a7bf918b24f6a86c9402fb44200a, type: 3}
+  m_Script: {fileID: 11500000, guid: 50b6d237a54f641308379a4ebed97019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WhatButton: 3
-  ErrorSound: {fileID: 193042, guid: 215bf75ba51564b919be983b7973b500, type: 2}
-  RightSound: {fileID: 154088, guid: 19ac77ce01ff2460c9979931b8a3655b, type: 2}
 --- !u!212 &21296892
 SpriteRenderer:
   m_ObjectHideFlags: 1
