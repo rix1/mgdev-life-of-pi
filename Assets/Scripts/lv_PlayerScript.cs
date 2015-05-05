@@ -64,6 +64,7 @@ public class lv_PlayerScript : MonoBehaviour {
 		movement = new Vector2 (speed.x * inputX, speed.y * inputY);
 		moving = true;
 		goTo_old = moveTo;
+
 	}
 	
 	// Update is called once per frame

@@ -12,5 +12,6 @@ public class lv1_PlayerParticles : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		dir = GameObject.FindGameObjectWithTag ("Player").GetComponent<lv_PlayerScript> ().getDir ();
+
 	}
 }
