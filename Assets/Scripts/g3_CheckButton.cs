@@ -6,8 +6,7 @@ public class g3_CheckButton : MonoBehaviour {
 	public int WhatButton = 0;
 	public GameObject Particles;
 	public bool over = false;
-
-	private int numberCorrect = 0;
+	public int missed=0;
 
 	void Update () {
 		if (WhatButton == 1) {
@@ -51,13 +50,9 @@ public class g3_CheckButton : MonoBehaviour {
 			if(over == true){
 				GameObject.Instantiate(Particles, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
 				g3_Maincode.song1score += 1;
-				numberCorrect++;
-				Debug.Log("number of correct notes in a row: " + numberCorrect);
-				
 			}
 			if(over == false){
 				g3_Maincode.song1score -= 0;
-				numberCorrect=0;
 			}
 			over = false;
 		}
@@ -66,14 +61,9 @@ public class g3_CheckButton : MonoBehaviour {
 			if(over == true){
 				g3_Maincode.song1score += 1;
 				GameObject.Instantiate(Particles, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
-				numberCorrect++;
-				Debug.Log("number of correct notes in a row: " + numberCorrect);
-				
 			}
 			if(over == false){
 				g3_Maincode.song1score -= 0;
-				numberCorrect=0;
-				
 			}
 			over = false;
 		}
@@ -82,14 +72,9 @@ public class g3_CheckButton : MonoBehaviour {
 			if(over == true){
 				GameObject.Instantiate(Particles, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
 				g3_Maincode.song1score += 1;
-				numberCorrect++;
-				Debug.Log("number of correct notes in a row: " + numberCorrect);
-				
 			}
 			if(over == false){
 				g3_Maincode.song1score -= 0;
-				numberCorrect=0;
-				
 			}
 			over = false;
 		}
@@ -104,6 +89,9 @@ public class g3_CheckButton : MonoBehaviour {
 	void OnCollisionExit2D(Collision2D other){
 		if(other.gameObject.tag == "Note") {
 			over = false;
+			missed++;
+
+			Debug.Log("Missed: "+missed);
 		}
 	}
 

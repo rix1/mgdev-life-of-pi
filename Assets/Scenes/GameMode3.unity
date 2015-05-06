@@ -121,6 +121,7 @@ MonoBehaviour:
   WhatButton: 3
   Particles: {fileID: 104748, guid: 72bf530afb5e34c669417f43a101fbd2, type: 2}
   over: 0
+  missed: 0
 --- !u!61 &220738205
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -625,6 +626,7 @@ MonoBehaviour:
   WhatButton: 2
   Particles: {fileID: 118602, guid: f681e1f978e0446eebb20d3658bc6c35, type: 2}
   over: 0
+  missed: 0
 --- !u!61 &1588082584
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -778,6 +780,7 @@ MonoBehaviour:
   WhatButton: 1
   Particles: {fileID: 187930, guid: bf4a03471af964bd9ab36037a6dcb071, type: 2}
   over: 0
+  missed: 0
 --- !u!61 &1947697318
 BoxCollider2D:
   m_ObjectHideFlags: 0
