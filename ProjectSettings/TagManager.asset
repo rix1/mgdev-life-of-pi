@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Timer
+  - Note
+  - WrongNote
   layers:
   - Default
   - TransparentFX
