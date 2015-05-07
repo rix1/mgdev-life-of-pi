@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: SpriteMaterial
+  m_Name: gunnar
   m_Shader: {fileID: 10800, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -19,7 +19,7 @@ Material:
           name: _MainTex
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: 1.02999997, y: 1}
+          m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -73,13 +73,6 @@ Material:
       data:
         first:
           name: _MetallicGlossMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _SpecGlossMap
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -150,10 +143,6 @@ Material:
         first:
           name: _Color
         second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _SpecColor
-        second: {r: .200000003, g: .200000003, b: .200000003, a: 1}
       data:
         first:
           name: _EmissionColorUI

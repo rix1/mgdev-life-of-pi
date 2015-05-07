@@ -29,6 +29,12 @@ public class lv_PlayerScript : MonoBehaviour {
 	private bool pos;
 	private bool moving;
 	public bool debug;
+	public float highscore;
+	private bool prevDirection;
+	
+	public Sprite leftSprite;
+	public Sprite rightSprite;
+
 
 	public int getDir(){
 		if (moving) {
@@ -45,6 +51,16 @@ public class lv_PlayerScript : MonoBehaviour {
 		Debug.Log("HEISANN PLAYA");
 		moving = false;
 		debug = true;
+		prevDirection = true;
+	}
+	
+	void setLight(){
+		
+		GameObject[] singers = GameObject.FindGameObjectsWithTag("Singer1");
+		
+		foreach (GameObject singer in singers){
+			singer.GetComponent<Light>().range = highscore;
+		}
 	}
 
 	void move(Vector3 currentPos, Vector3 moveTo){
@@ -75,7 +91,7 @@ public class lv_PlayerScript : MonoBehaviour {
 
 		if (!debug) {
 			if (goTo_new != goTo_old) {
-				Debug.Log ("Lets move");
+// 				Debug.Log ("Lets move");
 				// Move in new direction
 
 				move (currentPosition, goTo_new);
@@ -83,25 +99,53 @@ public class lv_PlayerScript : MonoBehaviour {
 
 			if (moving) {
 				if (pos) {
-					Debug.Log (currentPosition.x + ", old: " + goTo_old.x + ", new: " + goTo_new);
+					setSprite(true);
+// 					Debug.Log (currentPosition.x + ", old: " + goTo_old.x + ", new: " + goTo_new);
 					if (currentPosition.x > goTo_old.x) {
 						movement = new Vector2 (0, 0);
-						Debug.Log ("STOOOP");
+// 						Debug.Log ("STOOOP");
 						moving = false;
 					}
 				} else {
-					Debug.Log (currentPosition.x + ", old: " + goTo_old.x + ", new: " + goTo_new);
-					if (currentPosition.x < goTo_old.x) {
-						movement = new Vector2 (0, 0);
-						Debug.Log ("STOOOP");
-						moving = false;
-					}
+					setSprite(false);
+// 					Debug.Log (currentPosition.x + ", old: " + goTo_old.x + ", new: " + goTo_new);
+                    if (currentPosition.x < goTo_old.x)
+                    {
+                        movement = new Vector2(0, 0);
+//                         Debug.Log("STOOOP");
+                        moving = false;
+                    }
 				}
 			}
 		} else {
 			float inputX = Input.GetAxis ("Horizontal");
 			float inputY = Input.GetAxis ("Vertical");
+			
+			if(inputX < 0){
+				setSprite(true);
+			}else{
+				setSprite(false);
+			}
+			
 			movement = new Vector2 (speed.x * inputX, speed.y * inputY);
+		}
+		
+		setLight();
+	}
+	
+	// Left movevemt is true, right is false
+	void setSprite(bool newDir){
+		
+		// This means the direction has changed. Time to update the sprite! 
+		if(prevDirection != newDir){
+			
+			// TODO: Set new sprite
+			if(!newDir){
+				GetComponent<SpriteRenderer>().sprite = leftSprite;
+			}else {
+				GetComponent<SpriteRenderer>().sprite = rightSprite;
+			}
+			prevDirection = newDir;
 		}
 	}
 

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Note
+  - Singer1
+  - Singer2
+  - Singer3
+  - Dialog
   layers:
   - Default
   - TransparentFX

@@ -15,6 +15,9 @@ public class _perspectiveTouch : MonoBehaviour {
 	public const string LAYER_NAME = "Foreground";
 	public int sortingOrder = 14;
 	private SpriteRenderer sprite;
+	
+	private bool clicked = false;
+	GameObject[] dialogObjects;
 
 	void Start(){
 //		
@@ -25,12 +28,14 @@ public class _perspectiveTouch : MonoBehaviour {
 			sprite.sortingOrder = sortingOrder;
 			sprite.sortingLayerName = LAYER_NAME;
 		}
+		
+		dialogObjects =  GameObject.FindGameObjectsWithTag("Dialog");
+		displayDialogs(false);
 	}
 
 	void Update(){
 
 		if (Input.touchCount > 0){
-			Debug.Log("");
 			Camera camera = Camera.main;
 
 			Touch t = Input.GetTouch(0);
@@ -42,15 +47,27 @@ public class _perspectiveTouch : MonoBehaviour {
 
 			touchpoint = w;
 
-			Debug.Log("WorldPoint coord: " + w.x  + ":" + w.y*-1);
+// 			Debug.Log("WorldPoint coord: " + w.x  + ":" + w.y*-1);
 
 
 			Vector2 touchPos = new Vector2(w.x, w.y);
 
 
 			if (collider2D == Physics2D.OverlapPoint(touchPos)){
-				Application.LoadLevel("GameMode3");
+				if(!clicked){
+				Debug.Log("Sprite Clicked");
+				displayDialogs(true);				
+// 				Application.LoadLevel("GameMode3");
+				clicked = true;
+				}
+			}else{
+				if(clicked){
+// 					displayDialogs(false);
+					clicked = false;
+				}
 			}
+			
+			
 			
 			//			Vector3 wp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
 //			Vector2 touchPos = new Vector2(wp.x, wp.y);
@@ -59,6 +76,15 @@ public class _perspectiveTouch : MonoBehaviour {
 				//your code
 //				Debug.Log("Touch at: " + touchPos.x + ":" + touchPos.y);
 //			}
+		}
+	}
+	
+	void displayDialogs(bool display){
+		Debug.Log("Displaying dialogs: "+ display);
+		
+		foreach (GameObject element in dialogObjects){
+			Debug.Log("Setting " + element.name + " to " + display);
+			element.SetActive(display);
 		}
 	}
 }
