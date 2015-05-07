@@ -14,6 +14,13 @@ xcuserdata
 DerivedData
 *.xcuserstate
 
+### Visual Studio Code ###
+.settings/
+
+### Sublime Editor ###
+*.sublime-project
+*.sublime-workspace
+sublime.sh
 
 # =============== #
 # Unity generated #
