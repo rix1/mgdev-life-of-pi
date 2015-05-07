@@ -204,7 +204,9 @@ MonoBehaviour:
   yellow: {fileID: 101242, guid: 3c170813c412d4817b62e72bfb5573ab, type: 2}
   red: {fileID: 168502, guid: a076ea70722474b01af25111a2031275, type: 2}
   purple: {fileID: 185104, guid: c7395df4d91b643a199e8b39da85c701, type: 2}
-  patterns: []
+  currentPattern: []
+  prevPattern: []
+  nextPattern: []
   spawnLocPrev: []
   spawnLocCurrent: []
   spawnLocNext: []

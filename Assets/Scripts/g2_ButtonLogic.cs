@@ -119,7 +119,7 @@ public class g2_ButtonLogic : MonoBehaviour {
 			GameObject.Find("Timer").GetComponent<g2_Timer>().setPos();
 
 			//and a new pattern.
-			GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<g2_GameLogic>().generatePattern();
+			GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<g2_GameLogic>().updatePatterns();
 			setCurrentPattern();
 		}
 
