@@ -19,30 +19,138 @@ using System.Collections;
 
 public class lv_PlayerScript : MonoBehaviour {
 	
-
 	// Max speed....
 	public Vector2 speed = new Vector2(50,50);
 	public static Vector2 movement;
 
+	private Vector3 goTo_new;
+	private Vector3 goTo_old;
+	private Vector3 currentPosition;
+	private bool pos;
+	private bool moving;
+	public bool debug;
+	public float highscore;
+	private bool prevDirection;
+	
+	public Sprite leftSprite;
+	public Sprite rightSprite;
 
+
+	public int getDir(){
+		if (moving) {
+			return pos ? 1 : -1;
+		} else {
+			return 0;
+		}
+	}
 
 	// Use this for initialization
 	void Start () {
+		goTo_new = new Vector3 (0, 0, 0);
+		goTo_old = new Vector3 (0, 0, 0);
 		Debug.Log("HEISANN PLAYA");
+		moving = false;
+		debug = true;
+		prevDirection = true;
+	}
+	
+	void setLight(){
+		
+		GameObject[] singers = GameObject.FindGameObjectsWithTag("Singer1");
+		
+		foreach (GameObject singer in singers){
+			singer.GetComponent<Light>().range = highscore;
+		}
+	}
+
+	void move(Vector3 currentPos, Vector3 moveTo){
+//		transform.position = moveTo;
+
+		float inputX = 1;
+		float inputY = 0;
+
+		if (currentPos.x > moveTo.x) {
+			inputX = -1;
+			pos = false;
+		} else {
+			pos = true;
+			inputX = 1;
+		}
+
+		movement = new Vector2 (speed.x * inputX, speed.y * inputY);
+		moving = true;
+		goTo_old = moveTo;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		float inputX = Input.GetAxis ("Horizontal");
-		float inputY = Input.GetAxis ("Vertical");
+		currentPosition = transform.position;
+		
+		goTo_new = GameObject.Find("Touch").GetComponent<_perspectiveTouch>().touchpoint;
 
-		movement = new Vector2 (speed.x * inputX, speed.y * inputY);
+		if (!debug) {
+			if (goTo_new != goTo_old) {
+// 				Debug.Log ("Lets move");
+				// Move in new direction
+
+				move (currentPosition, goTo_new);
+			} 
+
+			if (moving) {
+				if (pos) {
+					setSprite(true);
+// 					Debug.Log (currentPosition.x + ", old: " + goTo_old.x + ", new: " + goTo_new);
+					if (currentPosition.x > goTo_old.x) {
+						movement = new Vector2 (0, 0);
+// 						Debug.Log ("STOOOP");
+						moving = false;
+					}
+				} else {
+					setSprite(false);
+// 					Debug.Log (currentPosition.x + ", old: " + goTo_old.x + ", new: " + goTo_new);
+                    if (currentPosition.x < goTo_old.x)
+                    {
+                        movement = new Vector2(0, 0);
+//                         Debug.Log("STOOOP");
+                        moving = false;
+                    }
+				}
+			}
+		} else {
+			float inputX = Input.GetAxis ("Horizontal");
+			float inputY = Input.GetAxis ("Vertical");
+			
+			if(inputX < 0){
+				setSprite(true);
+			}else{
+				setSprite(false);
+			}
+			
+			movement = new Vector2 (speed.x * inputX, speed.y * inputY);
+		}
+		
+		setLight();
+	}
+	
+	// Left movevemt is true, right is false
+	void setSprite(bool newDir){
+		
+		// This means the direction has changed. Time to update the sprite! 
+		if(prevDirection != newDir){
+			
+			// TODO: Set new sprite
+			if(!newDir){
+				GetComponent<SpriteRenderer>().sprite = leftSprite;
+			}else {
+				GetComponent<SpriteRenderer>().sprite = rightSprite;
+			}
+			prevDirection = newDir;
+		}
 	}
 
 	void FixedUpdate() {
 		// 5 - Move the game object
-		GetComponent<Rigidbody2D>().velocity = movement;
-//		Debug.Log (movement.x + " : " + movement.y);
-		
+		GetComponent<Rigidbody2D>().velocity =  movement;
 	}
 }

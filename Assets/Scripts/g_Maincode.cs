@@ -10,6 +10,6 @@ public class g_Maincode : MonoBehaviour {
 	}
 	
 	void Update () {
-	
+		
 	}
 }
