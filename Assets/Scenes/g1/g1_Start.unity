@@ -1411,7 +1411,6 @@ GameObject:
   - 212: {fileID: 877700892}
   - 114: {fileID: 877700894}
   - 114: {fileID: 877700895}
-  - 58: {fileID: 877700896}
   m_Layer: 8
   m_Name: ButtonLarge
   m_TagString: Untagged
@@ -1483,17 +1482,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26e3819da5bb477ea4c42191e9a0c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: GameMode3
---- !u!58 &877700896
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 877700891}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: .400000006
+  sceneName: GameMode1

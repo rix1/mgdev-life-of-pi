@@ -21,3 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/g3/g3_GameOverWon.unity
   - enabled: 1
     path: Assets/Scenes/g1/g1_GameOverWon.unity
+  - enabled: 1
+    path: Assets/Scenes/g3/g3_Start.unity
+  - enabled: 1
+    path: Assets/Scenes/g2/g2_Start.unity
+  - enabled: 1
+    path: Assets/Scenes/g1/g1_Start.unity

@@ -7,6 +7,7 @@ public class _PlayAgain : MonoBehaviour {
 	}
 
 	void OnTouchDown(Vector2 point){
+		Debug.Log ("touched");
 		Application.LoadLevel (sceneName);
 	}
 }
