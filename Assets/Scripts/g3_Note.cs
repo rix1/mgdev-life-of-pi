@@ -7,7 +7,7 @@ public class g3_Note : MonoBehaviour {
 	void Start () {
 		zPos = transform.position.z;
 	}
-	
+
 	void Update () {
 		transform.position += (new Vector3(0f, -5, 0f) * Time.deltaTime);
 	}
