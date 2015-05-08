@@ -4,15 +4,11 @@ using System.Collections.Generic;
 
 public class g2_ButtonLogic : MonoBehaviour {
 
-	//private List<GameObject> patterns = new List<GameObject>();
+	public List<GameObject> patterns = new List<GameObject>();
+
 	public int WhatButton = 0;
 	public GameObject sound;
 
-<<<<<<< HEAD
-	void Start () {
-	}
-	
-=======
 	public GameObject particleEffect;
 	
 	private static int streakCounter = 0;
@@ -31,7 +27,6 @@ public class g2_ButtonLogic : MonoBehaviour {
 		currentPattern = gamelogic.getCurrentPattern();
 	}
 
->>>>>>> siri_gm3
 	void Update () {
 		if (WhatButton == 1) {
 			transform.position = new Vector3(-1f, -1f, 0);
@@ -55,26 +50,6 @@ public class g2_ButtonLogic : MonoBehaviour {
 	}
 
 	void OnTouchDown(Vector2 point){
-<<<<<<< HEAD
-		//for (int i = 0; i < 4; i++) {
-			if (WhatButton == 1) {
-				Debug.Log ("GREEN BUTTON");
-				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
-			}
-			if (WhatButton == 2) {
-				Debug.Log ("YELLOW BUTTON");
-				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
-
-			}
-			if (WhatButton == 3) {
-				Debug.Log ("RED BUTTON");
-				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
-			}
-			if (WhatButton == 4) {
-				Debug.Log ("PURPLE BUTTON");
-				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
-			}
-=======
 		
 		if (streakCounter > 3) {
 			streakCounter = 0;
@@ -146,6 +121,5 @@ public class g2_ButtonLogic : MonoBehaviour {
 			Camera.main.GetComponent<g2_GameLogic>().advance();
 			currentPattern = Camera.main.GetComponent<g2_GameLogic>().getCurrentPattern();
 		}
->>>>>>> siri_gm3
 	}
 }
