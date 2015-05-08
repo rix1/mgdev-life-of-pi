@@ -13,12 +13,10 @@ public class g3_PlaySong : MonoBehaviour {
 
 	private Quaternion rotation = Quaternion.Euler(0,0,0);
 
-	public GameObject startSprite;
 	
 	
 	// Use this for initialization
 	void Start () {
-		GameObject.Instantiate(startSprite, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
 		StartCoroutine (SongStart ());
 	}
 	

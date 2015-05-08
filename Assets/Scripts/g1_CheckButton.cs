@@ -9,7 +9,6 @@ public class g1_CheckButton : MonoBehaviour {
 	public bool over = false;
 	public static int missed=0;
 	private static int mistakes = 0;
-	private int winningNumber = 30;
 	private int maxMistakes = 1;
 	public bool wrongNote = false;
 

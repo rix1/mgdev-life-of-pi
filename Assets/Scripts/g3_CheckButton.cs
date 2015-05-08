@@ -27,7 +27,6 @@ public class g3_CheckButton : MonoBehaviour {
 			transform.position = new Vector3 (1.8f, -3.28f, 0);
 			transform.rotation = Quaternion.Euler (0, 0, 0);
 		}
-		InvokeRepeating("decrementMistakes",20, 0.000f);
 	}
 
 	void correctTouch(){
