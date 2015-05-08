@@ -15,6 +15,13 @@ This is the repository for a mobile music game created in the MGDEV module
 5. **In Project View:** You should see a tab called "Project" with the different folders. Select the Scenes folder, and open `Stage 1`. 
 5. Thats it! Play by pushing the play button in the Unity UI. Take a look at the different folders and their descriptions on how to organize the files below.
 
+
+## Set up script editor
+
+- On Windows, use Visual Studio.
+- On OSX, you can either use Sublime (requires a bit of a set up) (http://wiki.unity3d.com/index.php/Using_Sublime_Text_as_a_script_editor)
+- Or the new Visual Studio Code (requires the latest version of the Mono framework) (http://unreferencedinstance.com/how-to-integrate-visual-studio-code-with-unity3d-project/)
+
 ## Project structure
 
 Only two folders should be kept under source control: Assets and ProjectSettings. Others are generated from these two. In your "Project" pane, you can find different types of assets:
