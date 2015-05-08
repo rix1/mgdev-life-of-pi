@@ -9,39 +9,36 @@ public class g3_CheckButton : MonoBehaviour {
 	public bool over = false;
 	public static int missed=0;
 	private static int mistakes = 0;
-	private int winningNumber = 30;
-	private int maxMistakes = 20;
+	private int winningNumber = -6;
+	private int maxMistakes = 10;
+
 
 	void Update () {
 		gameOver ();
-
 		if (WhatButton == 1) {
-			transform.position = new Vector3(-1.8f, -3.7f, 0);
+			transform.position = new Vector3(-1.8f, -3.28f, 0);
 			transform.rotation = Quaternion.Euler(0,0,0);
 		}
-
 		if (WhatButton == 2) {
-			transform.position = new Vector3(0.0f, -3.7f, 0);
+			transform.position = new Vector3(0.0f, -3.28f, 0);
 			transform.rotation = Quaternion.Euler(0,0,0);
 		}
-
 		if (WhatButton == 3) {
-			transform.position = new Vector3 (1.8f, -3.7f, 0);
+			transform.position = new Vector3 (1.8f, -3.28f, 0);
 			transform.rotation = Quaternion.Euler (0, 0, 0);
 		}
-
-	//Based on score, increase light size
+		InvokeRepeating("decrementMistakes",20, 0.000f);
 	}
 
 	void correctTouch(){
 		GameObject.Instantiate(Particles, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
-		g3_Maincode.song1score += 10;
-		Debug.Log("Correct: 10");
+		g3_Maincode.song1score += 2;
 	}
 
 	void wrongTouch(){
-		g3_Maincode.song1score -= 2;
-		Debug.Log("Wrong: -2");
+		if (g3_Maincode.song1score > 0) {
+			g3_Maincode.song1score -= 1;
+		}
 		mistakes++;
 		Debug.Log("Mistakes: " + mistakes);
 	}
@@ -79,12 +76,14 @@ public class g3_CheckButton : MonoBehaviour {
 	}
 
 	void decrementMistakes(){
-		//TODO
-		//decrease mistakes every second
+		if (mistakes > 0) {
+			mistakes--;
+			Debug.Log("DECREMENTED MISTAKES" + mistakes);
+		}
 	}
 
 	void gameOver(){
-		if (!(GameObject.FindWithTag("MainCamera").GetComponent<AudioSource> ().isPlaying) && g3_Maincode.song1score >= winningNumber) {
+		if (!(GameObject.FindWithTag("MainCamera").GetComponent<AudioSource> ().isPlaying) && g3_Score.currentPos.z > winningNumber) {
 			g3_Maincode.song1score=0;
 			g3_Maincode.song1highscore = g3_Maincode.song1score;
 			mistakes = 0;
@@ -109,8 +108,9 @@ public class g3_CheckButton : MonoBehaviour {
 
 			//Register missed notes
 			missed++;
-			g3_Maincode.song1score-=1;
-			Debug.Log("Missed: -1");
+			if(g3_Maincode.song1score>0){
+				g3_Maincode.song1score-=1;		
+			}
 
 			mistakes++;
 			Debug.Log("Mistakes: " + mistakes);

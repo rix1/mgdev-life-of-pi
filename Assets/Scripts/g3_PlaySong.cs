@@ -13,10 +13,13 @@ public class g3_PlaySong : MonoBehaviour {
 
 	private Quaternion rotation = Quaternion.Euler(0,0,0);
 
+	public GameObject startSprite;
+	
 	
 	// Use this for initialization
 	void Start () {
-		StartCoroutine (SongStart());	
+		GameObject.Instantiate(startSprite, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
+		StartCoroutine (SongStart ());
 	}
 	
 	IEnumerator SongStart(){
@@ -31,7 +34,19 @@ public class g3_PlaySong : MonoBehaviour {
 	}
 
 	IEnumerator Song1(){
+		yield return new WaitForSeconds(2f);
+		GameObject.Instantiate(green, spawnLoc1, rotation);
+		yield return new WaitForSeconds(2f);
+		GameObject.Instantiate(red, spawnLoc2, rotation);
+		yield return new WaitForSeconds(2f);
+		GameObject.Instantiate(yellow, spawnLoc3, rotation);
 		yield return new WaitForSeconds(5f);
+		GameObject.Instantiate(green, spawnLoc1, rotation);
+		yield return new WaitForSeconds(2f);
+		GameObject.Instantiate(red, spawnLoc2, rotation);
+		yield return new WaitForSeconds(2f);
+		GameObject.Instantiate(yellow, spawnLoc3, rotation);
+		yield return new WaitForSeconds(2f);
 		GameObject.Instantiate(green, spawnLoc1, rotation);
 		yield return new WaitForSeconds(2f);
 		GameObject.Instantiate(red, spawnLoc2, rotation);

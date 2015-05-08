@@ -3,18 +3,12 @@ using System.Collections;
 
 public class _Fade : MonoBehaviour {
 	private int timer;
-	public float zPos;
-
-	// Use this for initialization
-	void Start () {
-		zPos = transform.position.z;
+	public int timeToDestroy = 0;
 		
-	}
-	
 	// Update is called once per frame
 	void Update () {
 		timer++;
-		if (timer >= 5) {
+		if (timer >= timeToDestroy) {
 			Destroy(gameObject);
 		}
 	}
