@@ -119,9 +119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WhatButton: 3
-  button: {fileID: 0}
   Particles: {fileID: 104748, guid: 72bf530afb5e34c669417f43a101fbd2, type: 2}
   over: 0
+  missed: 0
 --- !u!61 &220738205
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -217,7 +217,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5607e9f09e3954c74bac40f55a76150a, type: 2}
+  - {fileID: 2100000, guid: 840b0d8c3a43840c58114780eaf1a623, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70158536bdca945938f9bfc16904ea5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textScore: {fileID: 1847926430}
+  score: {fileID: 0}
 --- !u!1 &1497574404
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,7 +435,6 @@ MonoBehaviour:
   green: {fileID: 197776, guid: 1659c840618de4a98920d61534a65182, type: 2}
   red: {fileID: 104180, guid: 56ef94467a4da46feaebe5eede03072e, type: 2}
   yellow: {fileID: 123920, guid: a6f6be2101823479781c2a2d1f5793a5, type: 2}
-  startSprite: {fileID: 0}
 --- !u!132 &1497574413
 GUIText:
   m_ObjectHideFlags: 0
@@ -571,9 +570,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WhatButton: 2
-  button: {fileID: 0}
   Particles: {fileID: 118602, guid: f681e1f978e0446eebb20d3658bc6c35, type: 2}
   over: 0
+  missed: 0
 --- !u!61 &1588082584
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -725,9 +724,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WhatButton: 1
-  button: {fileID: 1947697316}
   Particles: {fileID: 187930, guid: bf4a03471af964bd9ab36037a6dcb071, type: 2}
   over: 0
+  missed: 0
 --- !u!61 &1947697318
 BoxCollider2D:
   m_ObjectHideFlags: 0
