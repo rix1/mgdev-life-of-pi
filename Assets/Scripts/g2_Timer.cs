@@ -3,6 +3,7 @@ using System.Collections;
 
 public class g2_Timer : MonoBehaviour {
 	private float originalValueLeft;
+	private float originalValueRight;
 	private float maxScale;
 	public  bool gameOver;
 	public bool neg = false;
@@ -15,6 +16,7 @@ public class g2_Timer : MonoBehaviour {
 
 	void Start () {
 		originalValueLeft = GetComponent<Renderer>().bounds.min.x;
+		originalValueRight = GetComponent<Renderer>().bounds.max.x;
 		gameOver = false;
 
 		maxScale = transform.localScale.x;

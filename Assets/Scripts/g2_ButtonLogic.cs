@@ -11,20 +11,20 @@ public class g2_ButtonLogic : MonoBehaviour {
 
 	public GameObject particleEffect;
 	
-	private static int i = 0;
+	private static int streakCounter = 0;
 	private List<string> currentPattern;
 
 	private bool timerNeg;
 	private bool timerPos;
 
 	void Start () {
-		setCurrentPattern ();
+		setCurrentPattern();
 	}
 
 	void setCurrentPattern(){
 		GameObject other = GameObject.FindGameObjectWithTag ("MainCamera");
 		g2_GameLogic gamelogic = other.GetComponent<g2_GameLogic> ();
-		currentPattern = gamelogic.stringPattern;
+		currentPattern = gamelogic.getCurrentPattern();
 	}
 
 	void Update () {
@@ -50,68 +50,67 @@ public class g2_ButtonLogic : MonoBehaviour {
 	}
 
 	void OnTouchDown(Vector2 point){
-
-		if (i > 3) {
-			i = 0;
+		
+		if (streakCounter > 3) {
+			streakCounter = 0;
 		}
+		
 
 		if (WhatButton == 1) {
-			if (currentPattern [i] == "greenPattern") {
+			if (currentPattern [streakCounter] == "greenPattern") {
 				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
-				i++;
+				streakCounter++;
 			} else {
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				
 				GameObject.Find("Timer").GetComponent<g2_Timer>().setNeg();
-				i = 0;
+				streakCounter = 0;
 			}
 		}
 
 		if (WhatButton == 2) {
-			if (currentPattern [i] == "yellowPattern") {
+			if (currentPattern [streakCounter] == "yellowPattern") {
 				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
-				i++;
+				streakCounter++;
 			} else {
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				
 				GameObject.Find("Timer").GetComponent<g2_Timer>().setNeg();
-				i = 0;
+				streakCounter = 0;
 			}
 		}
 
 		if (WhatButton == 3) {
-			if (currentPattern [i] == "redPattern") {
+			if (currentPattern [streakCounter] == "redPattern") {
 				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
-				i++;
+				streakCounter++;
 			} else {
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				GameObject.Find("Timer").GetComponent<g2_Timer>().setNeg();
-				i = 0;
+				streakCounter = 0;
 			}
 		}
 
 		if (WhatButton == 4) {	
-			if (currentPattern [i] == "purplePattern") {
+			if (currentPattern [streakCounter] == "purplePattern") {
 				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
-				i++;
+				streakCounter++;
 			} else {
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				
 				GameObject.Find("Timer").GetComponent<g2_Timer>().setNeg();
-				i = 0;
+				streakCounter = 0;
 			}
 		}
-
-
-		if (i < 4) {
-
-//			Debug.Log ("i is: " + i + " button to be pushed: " + currentPattern [i]);
-		} else {
-
+		
+		if(streakCounter < 4){
+			
+		}else{
+			
 			// Someone just succeeded. We should reward them with a score, 
 			g2_Maincode.score+=1;
 
@@ -119,10 +118,8 @@ public class g2_ButtonLogic : MonoBehaviour {
 			GameObject.Find("Timer").GetComponent<g2_Timer>().setPos();
 
 			//and a new pattern.
-			GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<g2_GameLogic>().updatePatterns();
-			setCurrentPattern();
+			Camera.main.GetComponent<g2_GameLogic>().advance();
+			currentPattern = Camera.main.GetComponent<g2_GameLogic>().getCurrentPattern();
 		}
-
 	}
-
 }
