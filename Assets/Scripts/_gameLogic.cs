@@ -3,8 +3,10 @@ using System.Collections;
 
 public class _gameLogic : MonoBehaviour {
 	
-	public string nextScene;
 	public string thisScene;
+	private string g1 = "g1_Start";
+	private string g2 = "g2_Start";
+	private string g3 = "g3_Start";
 
 	// Use this for initialization
 	void Start () {
@@ -16,8 +18,13 @@ public class _gameLogic : MonoBehaviour {
 	
 	}
 	
-	public void loadScene(){
-		Debug.Log("Button Clicked - LOADING NEXT SCENE");
-		Application.LoadLevel(nextScene);
+	public void loadG1(){
+		Application.LoadLevel(g1);
+	}
+	public void loadG2(){
+		Application.LoadLevel(g2);
+	}
+	public void loadG3(){
+		Application.LoadLevel(g3);
 	}
 }
