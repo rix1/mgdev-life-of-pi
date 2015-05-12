@@ -7,6 +7,9 @@ TagManager:
   - Timer
   - Note
   - WrongNote
+  - Dialog
+  - Singer1
+  - Rhythmify_Music
   layers:
   - Default
   - TransparentFX
