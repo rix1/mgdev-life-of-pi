@@ -17,17 +17,17 @@ namespace Rhythmify {
         private int beatCount = 0;
 
         public void Start() {
-            GameObject[] bgmContainers = GameObject.FindGameObjectsWithTag("MainCamera");
+            GameObject[] bgmContainers = GameObject.FindGameObjectsWithTag("Rhythmify_Music");
             if (bgmContainers.Length > 1) {
                 Debug.LogError("This scene contains more than 1 background music.");
                 Debug.Break();
             }
             else if (bgmContainers.Length < 1) {
-                Debug.LogError("This scene must contain 1 GameObject tagged with \"MainCamera\".");
+                Debug.LogError("This scene must contain 1 GameObject tagged with \"Rhythmify_Music\".");
                 Debug.Break();
             }
 
-            GameObject bgmContainer = GameObject.FindGameObjectWithTag("MainCamera");
+            GameObject bgmContainer = GameObject.FindGameObjectWithTag("Rhythmify_Music");
         
             audioSource = bgmContainer.GetComponent<AudioSource>();
             audioClip = audioSource.clip;

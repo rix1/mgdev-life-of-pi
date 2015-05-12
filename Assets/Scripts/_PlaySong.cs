@@ -28,8 +28,8 @@ public class _PlaySong : MonoBehaviour
 		beatSamples = (44100 / (BPM / 60));
 		audio = GetComponent<AudioSource> ();
 		StartCoroutine(CreateGreenNotes());
-		StartCoroutine(CreateRedNotes());
-		StartCoroutine(CreateYellowNotes());
+// 		StartCoroutine(CreateRedNotes());
+// 		StartCoroutine(CreateYellowNotes());
 	}
 
 
@@ -38,9 +38,7 @@ public class _PlaySong : MonoBehaviour
 	
 	IEnumerator CreateGreenNotes()
 	{
-		while(greenNotes > 0)
-		{
-			if (audio.timeSamples >= nextBeatSamples && audio.isPlaying)
+		if (audio.timeSamples >= nextBeatSamples && audio.isPlaying)
 			{
 				//audio.Play();
 				yield return new WaitForSeconds(.4f);
@@ -48,37 +46,36 @@ public class _PlaySong : MonoBehaviour
 				greenNotes--;
 				nextBeatSamples += beatSamples;
 			}
-		}
 	}
-
-	IEnumerator CreateRedNotes()
-	{
-		while(redNotes > 0)
-		{
-			if (audio.timeSamples >= nextBeatSamples && audio.isPlaying)
-			{
-				//audio.Play();
-				yield return new WaitForSeconds(.8f);
-				Instantiate(red, spawnLoc2, rotation);
-				redNotes--;
-				nextBeatSamples += beatSamples;
-			}
-		}
-	}
-
-	IEnumerator CreateYellowNotes()
-	{
-		while(yellowNotes > 0)
-		{
-			if (audio.timeSamples >= nextBeatSamples && audio.isPlaying)
-			{
-				//audio.Play();
-				yield return new WaitForSeconds(1.2f);
-				Instantiate(yellow, spawnLoc3, rotation);
-				yellowNotes--;
-				nextBeatSamples += beatSamples;
-			}
-		}
-		Application.Quit ();
-	}
+// 
+// 	IEnumerator CreateRedNotes()
+// 	{
+// 		if(redNotes > 0)
+// 		{
+// 			if (audio.timeSamples >= nextBeatSamples && audio.isPlaying)
+// 			{
+// 				//audio.Play();
+// 				yield return new WaitForSeconds(.8f);
+// 				Instantiate(red, spawnLoc2, rotation);
+// 				redNotes--;
+// 				nextBeatSamples += beatSamples;
+// 			}
+// 		}
+// 	}
+// 
+// 	IEnumerator CreateYellowNotes()
+// 	{
+// 		if(yellowNotes > 0)
+// 		{
+// 			if (audio.timeSamples >= nextBeatSamples && audio.isPlaying)
+// 			{
+// 				//audio.Play();
+// 				yield return new WaitForSeconds(1.2f);
+// 				Instantiate(yellow, spawnLoc3, rotation);
+// 				yellowNotes--;
+// 				nextBeatSamples += beatSamples;
+// 			}
+// 		}
+// 		Application.Quit ();
+// 	}
 }

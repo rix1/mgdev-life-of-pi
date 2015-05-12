@@ -82,13 +82,14 @@ public class g3_CheckButton : MonoBehaviour {
 	}
 
 	void gameOver(){
-		if (!(GameObject.FindWithTag("MainCamera").GetComponent<AudioSource> ().isPlaying) && g3_Score.currentPos.z > winningNumber) {
+		if (!(GameObject.FindWithTag("Rhythmify_Music").GetComponent<AudioSource> ().isPlaying) && g3_Score.currentPos.z > winningNumber) {
 			g3_Maincode.song1score=0;
 			g3_Maincode.song1highscore = g3_Maincode.song1score;
 			mistakes = 0;
 			Application.LoadLevel("g3_GameOverWon");
 		}
-		if (mistakes == maxMistakes) {
+// 		if (mistakes == maxMistakes) {
+		if (false) {
 			g3_Maincode.song1score=0;
 			mistakes = 0;
 			Application.LoadLevel("g3_GameOver");
