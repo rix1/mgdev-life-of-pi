@@ -37,7 +37,7 @@ public class g1_CheckButton : MonoBehaviour {
 	void correctTouch(){
 		if (wrongNote) {
 			mistakes++;
-			Debug.Log("Mistakes: " + mistakes);
+// 			Debug.Log("Mistakes: " + mistakes);
 			wrongNote=false;
 		} else {
 			GameObject.Instantiate (Particles, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
@@ -49,7 +49,7 @@ public class g1_CheckButton : MonoBehaviour {
 	void wrongTouch(){
 		g1_Maincode.song1score -= 2;
 		Debug.Log("Wrong: -2");
-		Debug.Log("Mistakes: " + mistakes);
+// 		Debug.Log("Mistakes: " + mistakes);
 	}
 	
 	void OnTouchDown(Vector2 point){

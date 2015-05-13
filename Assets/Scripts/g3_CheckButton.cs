@@ -39,7 +39,7 @@ public class g3_CheckButton : MonoBehaviour {
 			g3_Maincode.song1score -= 1;
 		}
 		mistakes++;
-		Debug.Log("Mistakes: " + mistakes);
+// 		Debug.Log("Mistakes: " + mistakes);
 	}
 	
 	void OnTouchDown(Vector2 point){
@@ -113,7 +113,7 @@ public class g3_CheckButton : MonoBehaviour {
 			}
 
 			mistakes++;
-			Debug.Log("Mistakes: " + mistakes);
+// 			Debug.Log("Mistakes: " + mistakes);
 		}
 	}
 

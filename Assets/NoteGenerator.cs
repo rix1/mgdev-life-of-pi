@@ -17,9 +17,9 @@ public class NoteGenerator : _AbstractRhythmObject {
 	private Quaternion rotation = Quaternion.Euler(0,0,0);
 
 	override protected void rhythmUpdate(int i){
-		Debug.Log("BEAT: " + i + " : " + Random.Range(0,4));
+		Debug.Log("BEAT: " + i + " : " + Random.Range(1,4));
 		
-		random = Random.Range(0,4);
+		random = Random.Range(1,4);
 		
 		drawNote(random);
 	}
