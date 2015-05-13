@@ -10,6 +10,8 @@ public class _gameLogic : MonoBehaviour {
 	
 	public float score = 0;
 	
+	private LevelScore lvl1 = new LevelScore();
+	
 	// Use this for initialization
 	void Start () {
 		_gameState.setScore(score);

@@ -14,6 +14,9 @@ public class _gameState {
 	private static Vector3 startPos = new Vector3(-9.0f, -3.2f,0); 
 	private static Vector3 playerPos;
 	public static float playerScore;
+	
+	
+	
 	private static bool started = false;
 	
 	public static Vector3 getPlayerPos(){

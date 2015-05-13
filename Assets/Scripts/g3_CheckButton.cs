@@ -88,8 +88,7 @@ public class g3_CheckButton : MonoBehaviour {
 			mistakes = 0;
 			Application.LoadLevel("g3_GameOverWon");
 		}
-// 		if (mistakes == maxMistakes) {
-		if (false) {
+		if (mistakes == maxMistakes) {
 			g3_Maincode.song1score=0;
 			mistakes = 0;
 			Application.LoadLevel("g3_GameOver");
