@@ -9,9 +9,9 @@ public class NoteGenerator : _AbstractRhythmObject {
 	public GameObject red;
 	public GameObject yellow;
 
-	private Vector3 spawnLoc1 = new Vector3(-1.8f ,4f,0f); 
-	private Vector3 spawnLoc2 = new Vector3(0.0f ,4f,0f); 
-	private Vector3 spawnLoc3 = new Vector3(1.8f ,4f,0f); 
+	private Vector3 spawnLoc1 = new Vector3(-1.4f ,6f,30f); 
+	private Vector3 spawnLoc2 = new Vector3(0.0f ,6f,30f); 
+	private Vector3 spawnLoc3 = new Vector3(1.4f ,6f,30f); 
 	private int random = 0;
 
 	private Quaternion rotation = Quaternion.Euler(0,0,0);

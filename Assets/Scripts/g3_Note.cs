@@ -9,7 +9,7 @@ public class g3_Note : MonoBehaviour {
 	}
 
 	void Update () {
-		transform.position += (new Vector3(0f, -5, 0f) * Time.deltaTime);
+		transform.position += (new Vector3(0f, -4.5f, -20f) * Time.deltaTime);
 	}
 
 	void OnBecameInvisible(){
