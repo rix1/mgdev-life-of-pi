@@ -30,14 +30,12 @@ public class lv_PlayerScript: MonoBehaviour {
     private bool pos;
     private bool moving;
     public bool debug;
-    public float highscore;
     private bool prevDirection;
     private bool clicked = false;
     public BoxCollider2D roadCollider;
     public Sprite leftSprite;
     public Sprite rightSprite;
-
-
+    
     public int getDir() {
         if (moving) {
             return pos ? 1 : -1;
@@ -48,22 +46,14 @@ public class lv_PlayerScript: MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-
+        
+        transform.localPosition = _gameState.getPlayerPos(); 
+        
         goTo_new = new Vector3(0, 0, 0);
         goTo_old = new Vector3(0, 0, 0);
-        Debug.Log("HEISANN PLAYA");
         moving = false;
         debug = false;
         prevDirection = true;
-    }
-
-    void setLight() {
-
-        GameObject[] singers = GameObject.FindGameObjectsWithTag("Singer1");
-
-        foreach(GameObject singer in singers) {
-            singer.GetComponent < Light > ().range = highscore;
-        }
     }
 
     void move(Vector3 currentPos, Vector3 moveTo) {
@@ -85,9 +75,11 @@ public class lv_PlayerScript: MonoBehaviour {
         goTo_old = moveTo;
 
     }
+   
 
     // Update is called once per frame
     void Update() {
+       
         currentPosition = transform.position;
         clicked = GameObject.Find("Touch").GetComponent < _perspectiveTouch > ().isNew();
 
@@ -117,6 +109,7 @@ public class lv_PlayerScript: MonoBehaviour {
                     movement = new Vector2(0, 0);
                     // Debug.Log ("STOOOP");
                     moving = false;
+                    _gameState.setPlayerPos(transform.localPosition);
                 }
             } else { // Moving left
                 setSprite(false);
@@ -124,15 +117,13 @@ public class lv_PlayerScript: MonoBehaviour {
                 if (currentPosition.x < goTo_old.x) {
                     movement = new Vector2(0, 0);
                     // Debug.Log("STOOOP");
+                    _gameState.setPlayerPos(transform.localPosition);
                     moving = false;
                 }
             }
         } else {
             GetComponent < Rigidbody2D > ().gravityScale = 0;
         }
-
-        
-        setLight();
     }
 
     // Left movevemt is true, right is false
