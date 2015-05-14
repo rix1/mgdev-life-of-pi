@@ -1,12 +1,13 @@
 fileFormatVersion: 2
 guid: 4c331e256e0834585bd77ecfe1807b3d
-timeCreated: 1431111461
+timeCreated: 1431520331
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: g3_items_start_text
+    21300000: g3_items_start_image1
     21300002: g3_items_start_buttonlarge
     21300004: g3_items_start_buttonsmall
+    21300006: g3_items_start_image
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -52,13 +53,13 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: g3_items_start_text
+    - name: g3_items_start_image1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 133
-        width: 149
-        height: 218
+        x: 62
+        y: 137
+        width: 124
+        height: 25
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -79,6 +80,16 @@ TextureImporter:
         y: 67
         width: 40
         height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: g3_items_start_image
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 308
+        width: 135
+        height: 42
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
