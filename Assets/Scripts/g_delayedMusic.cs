@@ -2,7 +2,7 @@
 using System.Collections;
 [RequireComponent(typeof(AudioSource))]
 
-public class delayedMusic : MonoBehaviour {
+public class g_delayedMusic : MonoBehaviour {
 	AudioSource audio;
 
 	void Start () {

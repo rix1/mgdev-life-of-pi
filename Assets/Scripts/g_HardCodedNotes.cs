@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HardCodedNotes : MonoBehaviour {
+public class g_HardCodedNotes : MonoBehaviour {
 
 	public GameObject green;
 	public GameObject red;

@@ -15,7 +15,9 @@ public class _gameState {
 	private static Vector3 playerPos;
 	public static float playerScore;
 	
-	
+	private static LevelScore lvl1 = new LevelScore("lvl1");
+	private static LevelScore lvl2 = new LevelScore("lvl2");
+	private static LevelScore lvl3 = new LevelScore("lvl3");
 	
 	private static bool started = false;
 	
@@ -38,11 +40,29 @@ public class _gameState {
 	}
 	
 	
-	public static float getScore(){
-		return playerScore;
+	public static float getScore(string level, int singer){
+		return getLevel(level).getScore(singer);
 	}
 	
-	public static void setScore(float newScore){
-		playerScore = newScore;
+	public static void setScore(string level, int singer, float newScore){
+		getLevel(level).setScore(singer, newScore);
+		updateTotals();
+	}
+	
+	public static void updateTotals(){
+		// TODO.
+	}
+	
+	private static LevelScore getLevel(string name){
+		if(lvl1.name == name){
+			return lvl1;
+		}
+		else if(lvl2.name == name){
+			return lvl2;
+		}
+		else if(lvl3.name == name){
+			return lvl3;
+		}
+		return null;
 	}
 }

@@ -1,20 +1,19 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class lv_singerLogic : MonoBehaviour {
 
-	public int whatSinger;
-	private BoxCollider2D collider;
-	public bool over;
-	public GameObject player;
+	
+	private GameObject level;
+	public int id = 0;
 	
 	private GameObject[] dialogObjects;
 
 	// Use this for initialization
 	void Start () {
-		over = false;
-//         Physics2D.IgnoreCollision(player.GetComponent<CircleCollider2D>(), GetComponent<BoxCollider2D>());
+		level = GameObject.Find("Scripts");
+		
 		dialogObjects = GameObject.FindGameObjectsWithTag("Dialog");
+		setLight();
 	}
 	
 	// Update is called once per frame
@@ -30,6 +29,30 @@ public class lv_singerLogic : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D other){
 		Debug.Log("Exit");
 		displayDialogs(false);
+	}
+	
+	float getScore(){
+		return level.GetComponent<_levelLogic>().getScore(id);
+	}
+	
+	public void setLight(){
+		
+		GameObject lys = transform.Find("light").gameObject;
+		Vector3 tempPos = lys.transform.localPosition;
+		
+		float score = getScore();
+		
+		// TODO: get score relevant for the specific singer.
+		
+        tempPos.z -= (score * 0.2f);
+		
+		lys.transform.localPosition = tempPos;
+		
+        
+		Debug.Log("Setting light on " + lys.name + " at " + tempPos + " score: " + getScore());
+        
+		lys.GetComponent<Light>().range = score;
+	
 	}
 	
 	void displayDialogs(bool display){

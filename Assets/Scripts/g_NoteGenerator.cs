@@ -3,7 +3,7 @@ using System.Collections;
 using Rhythmify;
 
 
-public class NoteGenerator : _AbstractRhythmObject {
+public class g_NoteGenerator : _AbstractRhythmObject {
 
 	public GameObject green;
 	public GameObject red;
