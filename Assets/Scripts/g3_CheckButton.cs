@@ -2,144 +2,94 @@
 using System.Collections;
 
 public class g3_CheckButton : MonoBehaviour {
-
+	
 	public int WhatButton = 0;
-	public GameObject button;
 	public GameObject Particles;
 	public bool over = false;
-	public static int missed=0;
 	private static int mistakes = 0;
-	private int winningNumber = -6;
-	private int maxMistakes = 10;
+	public bool wrongNote = false;
+	
 
-
-	void Update () {
-		gameOver ();
-		if (WhatButton == 1) {
-			transform.position = new Vector3(-1.8f, -3.28f, 0);
-			transform.rotation = Quaternion.Euler(0,0,0);
-		}
-		if (WhatButton == 2) {
-			transform.position = new Vector3(0.0f, -3.28f, 0);
-			transform.rotation = Quaternion.Euler(0,0,0);
-		}
-		if (WhatButton == 3) {
-			transform.position = new Vector3 (1.8f, -3.28f, 0);
-			transform.rotation = Quaternion.Euler (0, 0, 0);
-		}
+	private GameObject parent; 
+	
+	void Start(){
+		parent = GameObject.Find("Score").gameObject;
+		setPos();
 	}
-
+	
+	//Based on score, increase light size
 	void correctTouch(){
-		GameObject.Instantiate(Particles, transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0,0,0) );
-		g3_Maincode.song1score += 2;
+		GameObject.Instantiate (Particles, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
+		updateScore(1);
 	}
-
+	
 	void wrongTouch(){
-		if (g3_Maincode.song1score > 0) {
-			g3_Maincode.song1score -= 1;
-		}
-		mistakes++;
-// 		Debug.Log("Mistakes: " + mistakes);
+		updateScore(-1);
 	}
 	
 	void OnTouchDown(Vector2 point){
-		if (WhatButton == 1) {
-			if(over == true){
-				correctTouch();
-			}
-			if(over == false){
-				wrongTouch();
-			}
-			over = false;
+	
+		if(over){
+			correctTouch();
 		}
-
-		if (WhatButton == 2) {
-			if(over == true){
-				correctTouch();
-			}
-			if(over == false){
-				wrongTouch();
-			}
-			over = false;
+		if(!over){
+			wrongTouch();
 		}
-
-		if (WhatButton == 3) {
-			if(over == true){
-				correctTouch();
-			}
-			if(over == false){
-				wrongTouch();
-			}
-			over = false;
-		}
+		over = false;
 	}
-
+	
 	void decrementMistakes(){
-		if (mistakes > 0) {
-			mistakes--;
-			Debug.Log("DECREMENTED MISTAKES" + mistakes);
+		//TODO
+		//decrease mistakes every second
+	}
+	
+	
+	void setPos(){
+		switch (WhatButton)
+		{
+			case 1:
+				transform.position = new Vector3(-1.8f, -3.7f, 0);
+			break;
+			case 2:
+				transform.position = new Vector3(0.0f, -3.7f, 0);
+			break;
+			case 3:
+				transform.position = new Vector3 (1.8f, -3.7f, 0);
+			break;
+			default:
+			break;
 		}
+		transform.rotation = Quaternion.Euler(0,0,0);
+	}
+	
+	void updateScore(int code){
+		parent.GetComponent<g3_Score>().updateScore(code);
 	}
 
-	void gameOver(){
-		if (!(GameObject.FindWithTag("Rhythmify_Music").GetComponent<AudioSource> ().isPlaying) && g3_Score.currentPos.z > winningNumber) {
-			g3_Maincode.song1score=0;
-			g3_Maincode.song1highscore = g3_Maincode.song1score;
-			mistakes = 0;
-			Application.LoadLevel("g3_GameOverWon");
-		}
-		if (mistakes == maxMistakes) {
-			g3_Maincode.song1score=0;
-			mistakes = 0;
-			Application.LoadLevel("g3_GameOver");
-		}
-	}
-
-	void OnCollisionEnter2D(Collision2D other){
-		if (other.gameObject.tag == "Note") {
+	
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.gameObject.tag == "Note" || other.gameObject.tag == "WrongNote") {
 			over = true;
 		}
 	}
-
-	void OnCollisionExit2D(Collision2D other){
+	
+	void OnTriggerExit2D(Collider2D other){
 		if(other.gameObject.tag == "Note") {
-			over = false;
-
-			//Register missed notes
-			missed++;
-			if(g3_Maincode.song1score>0){
-				g3_Maincode.song1score-=1;		
-			}
-
-			mistakes++;
-// 			Debug.Log("Mistakes: " + mistakes);
+			updateScore(-1);
 		}
+		over = false;
 	}
-
-	void OnCollisionStay2D(Collision2D other){
-		if (other.gameObject.tag == "Note") {
-
-			if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began){
-				if (WhatButton == 1) {
-					if (over == true) {
-						Destroy (other.gameObject);
-					}
-				}
-			}
+	
+	void OnTriggerStay2D(Collider2D other){
+		if (other.gameObject.tag == "Note" || other.gameObject.tag == "WrongNote") {
 			
 			if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began){
-				if (WhatButton == 2) {
-					if (over == true) {
-						Destroy (other.gameObject);
+				if (over) {
+					if(other.gameObject.tag == "WrongNote"){
+						updateScore(0);
 					}
+					Destroy (other.gameObject);
 				}
-			}
-			if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began){
-				if (WhatButton == 3) {	
-					if (over == true) {
-						Destroy (other.gameObject);
-					}
-				}	
 			}
 		}
 	}

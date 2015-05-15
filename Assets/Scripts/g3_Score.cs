@@ -1,77 +1,73 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class g3_Score : MonoBehaviour {
-	private int score;
-	public GUIText textScore;
 
-	public static Vector3 currentPos;
-	private Vector3 endPos;
+	public int levelID = 1;
+	
+	public float posScore = 10;
+	public float negScore = 2;
+	
+	public int maxMistakes = 1;
+	private int mistakes; 
+	
+	private int GameMode = 3;
 
+	public static float gameScore;
+	
+	public static float playTime;
+	public bool playing = false;
+	
 	void Start(){
+		playing = true;
+		playTime = 0;
+		mistakes = 0;
+		gameScore = 0;
 	}
-
-	void OnGUI(){
-		textScore.text = "" + g3_Maincode.song1score ;
-	}
-
-	void moveSmoothly(){
-		transform.position = Vector3.Lerp(currentPos, endPos, (Time.deltaTime));
-		currentPos = endPos;
-	}
-
-	void pointsToLight(){
-		score = g3_Maincode.song1score;
-		currentPos = gameObject.transform.position;
-
-		if (score > 0 && score <= 2) {
-			endPos = gameObject.transform.position = (new Vector3(0f, -5, 0));
-			moveSmoothly();
-		}
-		if (score > 2 && score <= 4) {
-			endPos = gameObject.transform.position = (new Vector3(0f, -5, -1));
-			moveSmoothly();
-		}
-		if (score > 4 && score <= 6) {
-			endPos = gameObject.transform.position = (new Vector3(0f, -5, -2));
-			moveSmoothly();
-		}
-		if (score > 6 && score <= 8) {
-			endPos = gameObject.transform.position = (new Vector3(0f, -5, -3));
-			moveSmoothly();
-		}
-		if (score > 8 && score <= 10) {
-			endPos = gameObject.transform.position = (new Vector3(0f, -5, -4));
-			moveSmoothly();
-		}
-		if (score > 10 && score <= 12) {
-			endPos = gameObject.transform.position = (new Vector3(0f, -5, -5));
-			moveSmoothly();
-		}
-		if (score > 12 && score <= 14) {
-			endPos = gameObject.transform.position = (new Vector3(0f, -5, -6));
-			moveSmoothly();
-		}
-		if (score > 14 && score <= 16) {
-			endPos = gameObject.transform.position = (new Vector3(0f, -5, -7));
-			moveSmoothly();
-		}
-		if (score > 16 && score <= 18) {
-			endPos = gameObject.transform.position = (new Vector3(0f, -5, -8));
-			moveSmoothly();
-		}
-		if (score > 18 && score <= 20) {
-			endPos = gameObject.transform.position = (new Vector3(0f, -5, -9));
-			moveSmoothly();
-		}
-	}
-
+	
 	void Update(){
-		if (gameObject.transform.position.z > -8) {
-			pointsToLight();
+		isPlaying();
+	}
+
+	public void updateScore(int code){
+		if(code > 0){
+			gameScore += posScore;
+			Debug.Log("Points given " + gameScore);
+		}else if(code < 0){
+			gameScore -= negScore;
+			Debug.Log("Points taken " + gameScore + " : " + mistakes);
+			mistakes ++;
+			
+			if(mistakes >= maxMistakes){
+				gameOver();
+			}
+			
+		}else{ // Code is 0
+			mistakes = maxMistakes+1;
+			gameOver();
 		}
-		gameObject.GetComponent<Light> ().intensity = 4;
-		gameObject.GetComponent<Light> ().range = 300;
-		
+	}
+	
+	private bool setScore(){
+		return _gameState.setScore(levelID, GameMode, gameScore);
+	}
+	
+	void isPlaying(){
+		if (playing) {
+			playTime += Time.deltaTime;
+			if(playTime >= GameObject.Find("Music").GetComponent<AudioSource>().clip.length + 4)
+				gameOver();
+		}
+	}
+	
+	void gameOver(){
+		if (mistakes >= maxMistakes) {
+			Application.LoadLevel("g1_GameOver");
+		}else{
+			if(setScore()){
+				Debug.Log("NEW HIGHSCORE!");
+			}
+			Application.LoadLevel("g1_GameOverWon");
+		}
 	}
 }

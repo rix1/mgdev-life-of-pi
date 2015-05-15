@@ -4,7 +4,6 @@ using System.Collections;
 public class g1_CheckButton : MonoBehaviour {
 	
 	public int WhatButton = 0;
-	public GameObject button;
 	public GameObject Particles;
 	public bool over = false;
 	private static int mistakes = 0;

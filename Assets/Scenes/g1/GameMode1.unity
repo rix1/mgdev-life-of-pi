@@ -118,7 +118,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WhatButton: 3
-  button: {fileID: 220738203}
   Particles: {fileID: 104748, guid: 72bf530afb5e34c669417f43a101fbd2, type: 2}
   over: 0
   wrongNote: 0
@@ -571,7 +570,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WhatButton: 2
-  button: {fileID: 1588082582}
   Particles: {fileID: 118602, guid: f681e1f978e0446eebb20d3658bc6c35, type: 2}
   over: 0
   wrongNote: 0
@@ -713,7 +711,6 @@ MonoBehaviour:
   posScore: 10
   negScore: 0
   maxMistakes: 5
-  GameMode: 1
   playing: 0
 --- !u!1 &1947697316
 GameObject:
@@ -815,7 +812,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WhatButton: 1
-  button: {fileID: 1947697316}
   Particles: {fileID: 187930, guid: bf4a03471af964bd9ab36037a6dcb071, type: 2}
   over: 0
   wrongNote: 0
