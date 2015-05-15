@@ -12,7 +12,8 @@ public class _pausebutton : MonoBehaviour {
 	
 	void OnTouchDown(Vector2 point){
 		if (WhatButton == 1) {
-			if(isPaused){
+			
+			if(GameObject.Find("Music") != null && isPaused){
 				GameObject.Find("Music").GetComponent<AudioSource>().Play();
 			}
 			

@@ -7,14 +7,12 @@ public class g2_ButtonLogic : MonoBehaviour {
 	public List<GameObject> patterns = new List<GameObject>();
 
 	public int WhatButton = 0;
-	
 	public GameObject sound;
 
 	public GameObject particleEffect;
 	
 	private static int streakCounter = 0;
 	private List<string> currentPattern;
-	
 
 	private bool timerNeg;
 	private bool timerPos;
@@ -60,13 +58,13 @@ public class g2_ButtonLogic : MonoBehaviour {
 
 		if (WhatButton == 1) {
 			if (currentPattern [streakCounter] == "greenPattern") {
-				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
+					GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				streakCounter++;
 			} else {
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				
-				GameObject.Find("Timer").GetComponent<g2_Score>().setNeg();
+				GameObject.Find("Timer").GetComponent<g2_Timer>().setNeg();
 				streakCounter = 0;
 			}
 		}
@@ -79,7 +77,7 @@ public class g2_ButtonLogic : MonoBehaviour {
 			} else {
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				
-				GameObject.Find("Timer").GetComponent<g2_Score>().setNeg();
+				GameObject.Find("Timer").GetComponent<g2_Timer>().setNeg();
 				streakCounter = 0;
 			}
 		}
@@ -91,7 +89,7 @@ public class g2_ButtonLogic : MonoBehaviour {
 				streakCounter++;
 			} else {
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
-				GameObject.Find("Timer").GetComponent<g2_Score>().setNeg();
+				GameObject.Find("Timer").GetComponent<g2_Timer>().setNeg();
 				streakCounter = 0;
 			}
 		}
@@ -104,7 +102,7 @@ public class g2_ButtonLogic : MonoBehaviour {
 			} else {
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				
-				GameObject.Find("Timer").GetComponent<g2_Score>().setNeg();
+				GameObject.Find("Timer").GetComponent<g2_Timer>().setNeg();
 				streakCounter = 0;
 			}
 		}
@@ -114,10 +112,10 @@ public class g2_ButtonLogic : MonoBehaviour {
 		}else{
 			
 			// Someone just succeeded. We should reward them with a score, 
-			GameObject.Find("Score").GetComponent<g2_Score>().gameScore ++;
+			g2_Maincode.score+=1;
 
 			// more time 
-			GameObject.Find("Timer").GetComponent<g2_Score>().setPos();
+			GameObject.Find("Timer").GetComponent<g2_Timer>().setPos();
 
 			//and a new pattern.
 			Camera.main.GetComponent<g2_GameLogic>().advance();
