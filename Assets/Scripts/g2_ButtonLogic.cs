@@ -7,6 +7,7 @@ public class g2_ButtonLogic : MonoBehaviour {
 	public List<GameObject> patterns = new List<GameObject>();
 
 	public int WhatButton = 0;
+	
 	public GameObject sound;
 
 	public GameObject particleEffect;
@@ -65,7 +66,7 @@ public class g2_ButtonLogic : MonoBehaviour {
 			} else {
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				
-				GameObject.Find("Timer").GetComponent<g2_Timer>().setNeg();
+				GameObject.Find("Timer").GetComponent<g2_Score>().setNeg();
 				streakCounter = 0;
 			}
 		}
@@ -78,7 +79,7 @@ public class g2_ButtonLogic : MonoBehaviour {
 			} else {
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				
-				GameObject.Find("Timer").GetComponent<g2_Timer>().setNeg();
+				GameObject.Find("Timer").GetComponent<g2_Score>().setNeg();
 				streakCounter = 0;
 			}
 		}
@@ -90,7 +91,7 @@ public class g2_ButtonLogic : MonoBehaviour {
 				streakCounter++;
 			} else {
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
-				GameObject.Find("Timer").GetComponent<g2_Timer>().setNeg();
+				GameObject.Find("Timer").GetComponent<g2_Score>().setNeg();
 				streakCounter = 0;
 			}
 		}
@@ -103,7 +104,7 @@ public class g2_ButtonLogic : MonoBehaviour {
 			} else {
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				
-				GameObject.Find("Timer").GetComponent<g2_Timer>().setNeg();
+				GameObject.Find("Timer").GetComponent<g2_Score>().setNeg();
 				streakCounter = 0;
 			}
 		}
@@ -113,10 +114,10 @@ public class g2_ButtonLogic : MonoBehaviour {
 		}else{
 			
 			// Someone just succeeded. We should reward them with a score, 
-			g2_Maincode.score+=1;
+			GameObject.Find("Score").GetComponent<g2_Score>().gameScore ++;
 
 			// more time 
-			GameObject.Find("Timer").GetComponent<g2_Timer>().setPos();
+			GameObject.Find("Timer").GetComponent<g2_Score>().setPos();
 
 			//and a new pattern.
 			Camera.main.GetComponent<g2_GameLogic>().advance();

@@ -9,13 +9,10 @@ public class g1_Score : MonoBehaviour {
 	public float posScore = 10;
 	public float negScore = 2;
 	
-	
-	public static float POS_SCORE = 0;
-	public static float NEG_SCORE = 0;
 	public int maxMistakes = 1;
 	private int mistakes; 
 	
-	public int GameMode = 1;
+	private int GameMode = 1;
 
 	public static float gameScore;
 	
@@ -30,8 +27,6 @@ public class g1_Score : MonoBehaviour {
 		playTime = 0;
 		mistakes = 0;
 		gameScore = 0;
-		POS_SCORE = posScore;
-		NEG_SCORE = negScore;
 	}
 	
 	void Update(){
@@ -77,10 +72,10 @@ public class g1_Score : MonoBehaviour {
 		if (mistakes >= maxMistakes) {
 			Application.LoadLevel("g1_GameOver");
 		}else{
-			Application.LoadLevel("g1_GameOverWon");
 			if(setScore()){
 				Debug.Log("NEW HIGHSCORE!");
 			}
+			Application.LoadLevel("g1_GameOverWon");
 		}
 	}
 }

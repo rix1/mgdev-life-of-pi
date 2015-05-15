@@ -311,7 +311,7 @@ Transform:
   m_Children:
   - {fileID: 1195817164}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &550583778 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 109220, guid: cd28185763ae94fd4961f10dcc09eead, type: 2}
@@ -367,7 +367,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 766964922}
   - 132: {fileID: 766964921}
-  - 114: {fileID: 766964920}
   m_Layer: 0
   m_Name: Score
   m_TagString: Untagged
@@ -375,18 +374,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &766964920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 766964919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9767e64de8a8c4fb78f31b502f84b1a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: {fileID: 766964921}
 --- !u!132 &766964921
 GUIText:
   m_ObjectHideFlags: 0
@@ -419,7 +406,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .5, y: .980000019, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1023564331}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!1001 &783557983
@@ -557,11 +545,11 @@ Transform:
   m_PrefabInternal: {fileID: 1678747704}
   m_GameObject: {fileID: 1023564329}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.66000009, z: 11.75}
+  m_LocalPosition: {x: -.5, y: 2.68000007, z: 11.75}
   m_LocalScale: {x: 1.12, y: .0299999993, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 766964922}
+  m_RootOrder: 0
 --- !u!114 &1023564332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,9 +558,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1023564329}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a1f914ce4336471faa079c6a735f1af, type: 3}
+  m_Script: {fileID: 11500000, guid: 9767e64de8a8c4fb78f31b502f84b1a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 766964921}
+  levelID: 1
+  posScore: 10
+  gameScore: 0
+  minPatterns: 10
   gameOver: 0
   neg: 0
   pos: 0
@@ -935,7 +928,7 @@ Transform:
   m_Children:
   - {fileID: 1997324669}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &1976120290
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,7 +982,7 @@ Transform:
   m_LocalScale: {x: 2.04999995, y: 3.9000001, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1001 &1994320836
 Prefab:
   m_ObjectHideFlags: 0

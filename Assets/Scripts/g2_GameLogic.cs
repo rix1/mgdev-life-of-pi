@@ -25,7 +25,7 @@ public class g2_GameLogic : MonoBehaviour {
 		pattern.Add (purple);
 		
 	 	prevPattern = new g2_Pattern("prev", pattern, 0.9f);
-		currentPattern = new g2_Pattern("current", pattern, 1.9f);
+		currentPattern = new g2_Pattern("urrent", pattern, 1.9f);
 		nextPattern = new g2_Pattern("next", pattern, 2.9f);
 		
 		drawTwo();

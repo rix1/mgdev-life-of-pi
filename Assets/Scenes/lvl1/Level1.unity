@@ -2351,7 +2351,7 @@ MonoBehaviour:
   singer1: {fileID: 178834, guid: 78e2043d83bac4620914b442ae26f58a, type: 2}
   singer2: {fileID: 185786, guid: 081c51092bf1e4569bf4c837668371de, type: 2}
   singer3: {fileID: 152692, guid: bc5cf41158f2c48c790e599ba2fe4f48, type: 2}
-  singerScore1: 0
+  singerScore1: 30
   singerScore2: 0
   singerScore3: 0
 --- !u!1 &1637097441
