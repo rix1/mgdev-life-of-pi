@@ -24,10 +24,11 @@ public class LevelScore {
 		g3 = new GameScore();
 	}
 	
-	public void setScore(int singer, float score){
-		getSinger(singer).score = score;
+	public bool setScore(int singer, float score){
+		return getSinger(singer).setScore(score);
 	}
 	
+	// We probably shouldn't use this one
 	public void updateScore(int singer, float score){
 		getSinger(singer).score += score;
 	}

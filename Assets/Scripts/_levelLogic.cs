@@ -52,6 +52,10 @@ public class _levelLogic : MonoBehaviour {
 		Application.LoadLevel(g3);
 	}
 	
+	public bool setScore(int gameMode, float score){
+		return _gameState.setScore(levelName, gameMode, score);
+	}
+	
     void setLight() {
 		
 // 		singer1.GetComponent<lv_singerLogic>().setLight();

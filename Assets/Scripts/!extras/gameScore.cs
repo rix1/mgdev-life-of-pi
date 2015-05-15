@@ -12,4 +12,14 @@ public class GameScore {
 	public GameScore(){
 		scoreElements++;
 	}
+	
+	
+	public bool setScore(float score){
+		if(this.score > score){
+			return false;
+		}else{
+			this.score = score;
+			return true;
+		}
+	}
 }

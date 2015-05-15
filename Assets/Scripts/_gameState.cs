@@ -44,9 +44,10 @@ public class _gameState {
 		return getLevel(level).getScore(singer);
 	}
 	
-	public static void setScore(string level, int singer, float newScore){
-		getLevel(level).setScore(singer, newScore);
+	public static bool setScore(string level, int singer, float newScore){
+		bool ret = getLevel(level).setScore(singer, newScore);
 		updateTotals();
+		return ret;
 	}
 	
 	public static void updateTotals(){
