@@ -579,8 +579,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelID: 1
-  posScore: 10
-  negScore: 10
+  posScore: 1
+  negScore: 2
   maxMistakes: 100
   playing: 0
 --- !u!4 &1240855807

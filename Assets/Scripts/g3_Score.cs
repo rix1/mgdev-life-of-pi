@@ -34,7 +34,9 @@ public class g3_Score : MonoBehaviour {
 			gameScore += posScore;
 			Debug.Log("Points given " + gameScore);
 		}else if(code < 0){
-			gameScore -= negScore;
+			if(gameScore > 0){
+				gameScore -= negScore;
+			}
 			Debug.Log("Points taken " + gameScore + " : " + mistakes);
 			mistakes ++;
 			
@@ -55,19 +57,19 @@ public class g3_Score : MonoBehaviour {
 	void isPlaying(){
 		if (playing) {
 			playTime += Time.deltaTime;
-			if(playTime >= GameObject.Find("Music").GetComponent<AudioSource>().clip.length + 4)
+			if(playTime >= GameObject.Find("Music").GetComponent<AudioSource>().clip.length + 6)
 				gameOver();
 		}
 	}
 	
 	void gameOver(){
 		if (mistakes >= maxMistakes) {
-			Application.LoadLevel("g1_GameOver");
+			Application.LoadLevel("g3_GameOver");
 		}else{
 			if(setScore()){
 				Debug.Log("NEW HIGHSCORE!");
 			}
-			Application.LoadLevel("g1_GameOverWon");
+			Application.LoadLevel("g3_GameOverWon");
 		}
 	}
 }
