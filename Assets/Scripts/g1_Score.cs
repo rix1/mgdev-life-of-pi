@@ -4,7 +4,7 @@ using System.Collections;
 public class g1_Score : MonoBehaviour {
 	public GUIText score;
 
-	public string level = "lvl1";
+	public int levelID = 1;
 	
 	public float posScore = 10;
 	public float negScore = 2;
@@ -22,40 +22,65 @@ public class g1_Score : MonoBehaviour {
 	public static int song1score = 0; 
 	public static int song1highscore = 0;
 	
+	public static float playTime;
+	public bool playing = false;
+	
 	void Start(){
+		playing = true;
+		playTime = 0;
 		mistakes = 0;
 		gameScore = 0;
 		POS_SCORE = posScore;
 		NEG_SCORE = negScore;
 	}
-
-	void OnGUI(){
-		score.text = "" + song1score ;
+	
+	void Update(){
+		isPlaying();
 	}
 
-	public void updateScore(bool pos){
-		if(pos){
+	void OnGUI(){
+		score.text = "" + gameScore;
+	}
+
+	public void updateScore(int code){
+		if(code > 0){
 			gameScore += posScore;
-		}else{
+			Debug.Log("Points given " + gameScore);
+		}else if(code < 0){
 			gameScore -= negScore;
+			Debug.Log("Points taken " + gameScore + " : " + mistakes);
 			mistakes ++;
+			
+			if(mistakes >= maxMistakes){
+				gameOver();
+			}
+			
+		}else{ // Code is 0
+			mistakes = maxMistakes+1;
+			gameOver();
 		}
 	}
 	
 	private bool setScore(){
-		return _gameState.setScore(level, GameMode, gameScore);
+		return _gameState.setScore(levelID, GameMode, gameScore);
+	}
+	
+	void isPlaying(){
+		if (playing) {
+			playTime += Time.deltaTime;
+			if(playTime >= GameObject.Find("Music").GetComponent<AudioSource>().clip.length + 4)
+				gameOver();
+		}
 	}
 	
 	void gameOver(){
-		if (!GameObject.Find("Music").GetComponent<AudioSource>().isPlaying) {
-// 			Debug.Log("Song finished: " + g1_Maincode.song1score);
-// 			g1_Maincode.song1highscore = g1_Maincode.song1score;
-			if (mistakes >= maxMistakes) {
-				Application.LoadLevel("g1_GameOver");
-			}else{
-				Application.LoadLevel("g1_GameOverWon");
+		if (mistakes >= maxMistakes) {
+			Application.LoadLevel("g1_GameOver");
+		}else{
+			Application.LoadLevel("g1_GameOverWon");
+			if(setScore()){
+				Debug.Log("NEW HIGHSCORE!");
 			}
-			setScore();
 		}
 	}
 }

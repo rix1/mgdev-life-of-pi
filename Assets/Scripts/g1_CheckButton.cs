@@ -7,7 +7,6 @@ public class g1_CheckButton : MonoBehaviour {
 	public GameObject button;
 	public GameObject Particles;
 	public bool over = false;
-	public static int missed=0;
 	private static int mistakes = 0;
 	public bool wrongNote = false;
 	
@@ -15,47 +14,22 @@ public class g1_CheckButton : MonoBehaviour {
 	private GameObject parent; 
 	
 	void Start(){
-		parent = transform.parent.gameObject;
+		parent = GameObject.Find("Score").gameObject;
 		setPos();
 	}
 	
 	//Based on score, increase light size
 	void correctTouch(){
-		if (wrongNote) {
-			mistakes++;
-			wrongNote=false;
-		} else {
-			GameObject.Instantiate (Particles, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
-			updateScore(true);
-		}
+		GameObject.Instantiate (Particles, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
+		updateScore(1);
 	}
 	
 	void wrongTouch(){
-		updateScore(false);
-// 		mistakes++;
+		updateScore(-1);
 	}
 	
 	void OnTouchDown(Vector2 point){
-// 		if (WhatButton == 1) {
-// 			if(over == true){
-// 				correctTouch();
-// 			}
-// 			if(over == false){
-// 				wrongTouch();
-// 			}
-// 			over = false;
-// 		}
-// 		
-// 		if (WhatButton == 2) {
-// 			if(over == true){
-// 				correctTouch();
-// 			}
-// 			if(over == false){
-// 				wrongTouch();
-// 			}
-// 			over = false;
-// 		}
-		
+	
 		if(over){
 			correctTouch();
 		}
@@ -89,39 +63,33 @@ public class g1_CheckButton : MonoBehaviour {
 		transform.rotation = Quaternion.Euler(0,0,0);
 	}
 	
-	void updateScore(bool pos){
-		parent.GetComponent<g1_Score>().updateScore(pos);
+	void updateScore(int code){
+		parent.GetComponent<g1_Score>().updateScore(code);
 	}
 
 	
-	void OnCollisionEnter2D(Collision2D other){
+	void OnTriggerEnter2D(Collider2D other){
 		if (other.gameObject.tag == "Note" || other.gameObject.tag == "WrongNote") {
 			over = true;
 		}
 	}
 	
-	void OnCollisionExit2D(Collision2D other){
+	void OnTriggerExit2D(Collider2D other){
 		if(other.gameObject.tag == "Note") {
-			//Register missed notes
-			missed++;
-// 			g1_Maincode.song1score-=1;
-			updateScore(false);
-			Debug.Log("Missed: -1");
-		}
-		if(other.gameObject.tag == "WrongNote") {
+			updateScore(-1);
 		}
 		over = false;
 	}
 	
-	void OnCollisionStay2D(Collision2D other){
+	void OnTriggerStay2D(Collider2D other){
 		if (other.gameObject.tag == "Note" || other.gameObject.tag == "WrongNote") {
 			
 			if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began){
-				if (over == true) {
-					Destroy (other.gameObject);
+				if (over) {
 					if(other.gameObject.tag == "WrongNote"){
-						wrongNote = true;
+						updateScore(0);
 					}
+					Destroy (other.gameObject);
 				}
 			}
 		}

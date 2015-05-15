@@ -15,9 +15,9 @@ public class _gameState {
 	private static Vector3 playerPos;
 	public static float playerScore;
 	
-	private static LevelScore lvl1 = new LevelScore("lvl1");
-	private static LevelScore lvl2 = new LevelScore("lvl2");
-	private static LevelScore lvl3 = new LevelScore("lvl3");
+	private static LevelScore lvl1 = new LevelScore();
+	private static LevelScore lvl2 = new LevelScore();
+	private static LevelScore lvl3 = new LevelScore();
 	
 	private static bool started = false;
 	
@@ -40,11 +40,11 @@ public class _gameState {
 	}
 	
 	
-	public static float getScore(string level, int singer){
+	public static float getScore(int level, int singer){
 		return getLevel(level).getScore(singer);
 	}
 	
-	public static bool setScore(string level, int singer, float newScore){
+	public static bool setScore(int level, int singer, float newScore){
 		bool ret = getLevel(level).setScore(singer, newScore);
 		updateTotals();
 		return ret;
@@ -54,16 +54,16 @@ public class _gameState {
 		// TODO.
 	}
 	
-	private static LevelScore getLevel(string name){
-		if(lvl1.name == name){
-			return lvl1;
+	private static LevelScore getLevel(int id){
+		switch (id)
+		{
+			case 1: return lvl1;
+			case 2: return lvl2;
+			case 3: return lvl3;
+			default:
+			Debug.Log("You have to set the correct level! Stopping application...");
+			Application.Quit(); 
+			return null;
 		}
-		else if(lvl2.name == name){
-			return lvl2;
-		}
-		else if(lvl3.name == name){
-			return lvl3;
-		}
-		return null;
 	}
 }

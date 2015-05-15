@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class _levelLogic : MonoBehaviour {
 	
-	public string levelName;
+	public int levelID;
 	private string g1 = "g1_Start";
 	private string g2 = "g2_Start";
 	private string g3 = "g3_Start";
@@ -19,8 +19,6 @@ public class _levelLogic : MonoBehaviour {
 	
 	private List<GameObject> singers = new List<GameObject>();
 	
-	public float score = 0;
-	
 	private LevelScore lvl1 = new LevelScore();
 	
 	// Use this for initialization
@@ -30,9 +28,9 @@ public class _levelLogic : MonoBehaviour {
 		singers.Add(singer2);
 		singers.Add(singer3);
 		
-		_gameState.setScore(levelName, 1, singerScore1);
-		_gameState.setScore(levelName, 2, singerScore2);
-		_gameState.setScore(levelName, 3, singerScore3);
+		_gameState.setScore(levelID, 1, singerScore1);
+		_gameState.setScore(levelID, 2, singerScore2);
+		_gameState.setScore(levelID, 3, singerScore3);
 		
 		setLight();
 	}
@@ -53,7 +51,7 @@ public class _levelLogic : MonoBehaviour {
 	}
 	
 	public bool setScore(int gameMode, float score){
-		return _gameState.setScore(levelName, gameMode, score);
+		return _gameState.setScore(levelID, gameMode, score);
 	}
 	
     void setLight() {
@@ -68,6 +66,6 @@ public class _levelLogic : MonoBehaviour {
 	// TODO:
 	
 	public float getScore(int singer){
-		return _gameState.getScore(levelName, singer);
+		return _gameState.getScore(levelID, singer);
 	}
 }

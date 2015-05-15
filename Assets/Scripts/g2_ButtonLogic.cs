@@ -13,6 +13,7 @@ public class g2_ButtonLogic : MonoBehaviour {
 	
 	private static int streakCounter = 0;
 	private List<string> currentPattern;
+	
 
 	private bool timerNeg;
 	private bool timerPos;

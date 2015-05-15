@@ -2347,14 +2347,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64bb34fffb9dc453eb544a12821d8b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: lvl1
+  levelID: 1
   singer1: {fileID: 178834, guid: 78e2043d83bac4620914b442ae26f58a, type: 2}
   singer2: {fileID: 185786, guid: 081c51092bf1e4569bf4c837668371de, type: 2}
   singer3: {fileID: 152692, guid: bc5cf41158f2c48c790e599ba2fe4f48, type: 2}
-  singerScore1: 5
-  singerScore2: 8
-  singerScore3: 3
-  score: 1
+  singerScore1: 0
+  singerScore2: 0
+  singerScore3: 0
 --- !u!1 &1637097441
 GameObject:
   m_ObjectHideFlags: 0

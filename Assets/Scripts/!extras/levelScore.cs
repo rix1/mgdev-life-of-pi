@@ -5,7 +5,7 @@ public class LevelScore {
 	
 	public static int scoreElements = 0;
 	
-	public string name;
+	public int id;
 	public float score;
 	
 	public GameScore g1;
@@ -13,12 +13,8 @@ public class LevelScore {
 	public GameScore g3;
 	
 	public LevelScore(){
-		
-	}
-	
-	public LevelScore(string name){
+		id = scoreElements;
 		scoreElements++;
-		this.name = name;
 		g1 = new GameScore();
 		g2 = new GameScore();
 		g3 = new GameScore();

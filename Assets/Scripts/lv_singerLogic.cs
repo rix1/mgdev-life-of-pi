@@ -42,17 +42,14 @@ public class lv_singerLogic : MonoBehaviour {
 		
 		float score = getScore();
 		
-		// TODO: get score relevant for the specific singer.
+		if(score >= 25){
+			score = 25;
+		}
 		
         tempPos.z -= (score * 0.2f);
-		
 		lys.transform.localPosition = tempPos;
-		
-        
-		Debug.Log("Setting light on " + lys.name + " at " + tempPos + " score: " + getScore());
-        
+// 		Debug.Log("Setting light on " + lys.name + " at " + tempPos + " score: " + getScore());
 		lys.GetComponent<Light>().range = score;
-	
 	}
 	
 	void displayDialogs(bool display){

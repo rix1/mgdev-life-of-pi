@@ -12,29 +12,45 @@ public class _pausebutton : MonoBehaviour {
 	
 	void OnTouchDown(Vector2 point){
 		if (WhatButton == 1) {
+			if(isPaused){
+				GameObject.Find("Music").GetComponent<AudioSource>().Play();
+			}
+			
 			isPaused = !isPaused;
+			
 		}
 	}
 
 	void Update () {
+
+		disableGameButtons();
+		
 		if(isPaused)
 			Time.timeScale = 0f; 
 		else
 			Time.timeScale = 1.0f;
 	}
+	
+	void disableGameButtons(){
+		GameObject.Find("buttons").gameObject.GetComponent<_buttonController>().activateButtons(!isPaused);
+		
+		if(GameObject.Find("Music") != null){
+			GameObject.Find("Score").GetComponent<g1_Score>().playing = !isPaused;
+			if(isPaused){
+				GameObject.Find("Music").GetComponent<AudioSource>().Pause();
+			}
+		}
+	}
 		
 	void OnGUI (){
 
-		if(isPaused){
+		if(isPaused){			
 			if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height / 2 - 60, 100, 40),"Back", customButton)){
 				Application.LoadLevel(levelName);
 			}
 			if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height / 2 + 00, 100, 40),"Continue", customButton)){
-				for (int i = 3; i>0; i--){
-					GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height / 2 + 00, 100, 40),"Continue", customButton);
-				}
 				isPaused = !isPaused;
-
+				GameObject.Find("Music").GetComponent<AudioSource>().Play();
 			}
 		}
 	}
