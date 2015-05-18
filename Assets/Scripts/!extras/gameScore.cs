@@ -8,6 +8,8 @@ public class GameScore {
 	public string name;
 	public float score;
 	
+	public bool completed = false;
+	
 	
 	public GameScore(){
 		scoreElements++;
@@ -15,6 +17,7 @@ public class GameScore {
 	
 	
 	public bool setScore(float score){
+		completed = true;
 		if(this.score > score){
 			return false;
 		}else{

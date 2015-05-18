@@ -12,12 +12,22 @@ public class LevelScore {
 	public GameScore g2;
 	public GameScore g3;
 	
+	
 	public LevelScore(){
 		id = scoreElements;
 		scoreElements++;
 		g1 = new GameScore();
 		g2 = new GameScore();
 		g3 = new GameScore();
+	}
+	
+	public bool isComplete(){
+		bool complete = true;
+		
+		if(!g1.completed || !g2.completed || g3.completed){
+			complete = false;	
+		}
+		return complete;
 	}
 	
 	public bool setScore(int singer, float score){

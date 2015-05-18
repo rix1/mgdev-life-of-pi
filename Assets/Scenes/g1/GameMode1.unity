@@ -710,7 +710,7 @@ MonoBehaviour:
   levelID: 1
   posScore: 10
   negScore: 0
-  maxMistakes: 5
+  maxMistakes: 100
   playing: 0
 --- !u!1 &1947697316
 GameObject:

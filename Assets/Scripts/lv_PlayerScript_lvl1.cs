@@ -143,7 +143,7 @@ public class lv_PlayerScript_lvl1: MonoBehaviour {
         
         goTo_new = GameObject.Find("Touch").GetComponent < _perspectiveTouch > ().getTouchPoint();
         
-        if (goTo_new.y > -20f && goTo_new.y < -4f) {
+        if (goTo_new.y > -20f && goTo_new.y < -7f) {
 
             // Application.LoadLevel("GameMode3");
 
