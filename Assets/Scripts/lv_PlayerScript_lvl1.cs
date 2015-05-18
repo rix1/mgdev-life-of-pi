@@ -73,7 +73,6 @@ public class lv_PlayerScript_lvl1: MonoBehaviour {
         movement = new Vector2(speed.x * inputX, speed.y * inputY);
         moving = true;
         goTo_old = moveTo;
-
     }
    
 
@@ -107,7 +106,7 @@ public class lv_PlayerScript_lvl1: MonoBehaviour {
                 // Debug.Log (currentPosition.x + ", old: " + goTo_old.x + ", new: " + goTo_new);
                 if (currentPosition.x > goTo_old.x) {
                     movement = new Vector2(0, 0);
-                    // Debug.Log ("STOOOP");
+//                     Debug.Log ("STOOOP");
                     moving = false;
                     _gameState.setPlayerPos(transform.localPosition);
                 }
@@ -116,7 +115,7 @@ public class lv_PlayerScript_lvl1: MonoBehaviour {
                 // Debug.Log (currentPosition.x + ", old: " + goTo_old.x + ", new: " + goTo_new);
                 if (currentPosition.x < goTo_old.x) {
                     movement = new Vector2(0, 0);
-                    // Debug.Log("STOOOP");
+//                     Debug.Log("STOOOP");
                     _gameState.setPlayerPos(transform.localPosition);
                     moving = false;
                 }
@@ -144,7 +143,7 @@ public class lv_PlayerScript_lvl1: MonoBehaviour {
         
         goTo_new = GameObject.Find("Touch").GetComponent < _perspectiveTouch > ().getTouchPoint();
         
-        if (goTo_new.y > -20f && goTo_new.y < -8f) {
+        if (goTo_new.y > -20f && goTo_new.y < -4f) {
 
             // Application.LoadLevel("GameMode3");
 
@@ -152,7 +151,7 @@ public class lv_PlayerScript_lvl1: MonoBehaviour {
                 // Move in new direction
                 move(currentPosition, goTo_new);
             }
-            goTo_new = new Vector3(0, 0, 0);
+//             goTo_new = new Vector3(0, 0, 0);
         }
     }
 

@@ -15,6 +15,8 @@ public class _gameState {
 	private static Vector3 playerPos;
 	public static float playerScore;
 	
+	public static int currentLevel = 1; // First level by default
+	
 	private static LevelScore lvl1 = new LevelScore();
 	private static LevelScore lvl2 = new LevelScore();
 	private static LevelScore lvl3 = new LevelScore();
@@ -38,6 +40,10 @@ public class _gameState {
 		}
 	}
 	
+	public static void setCurrentLevel(int id){
+		currentLevel = id;
+	}
+	
 	public static void setPlayerPos(Vector3 newPos){
 		playerPos = newPos;
 		started = true;
@@ -53,7 +59,8 @@ public class _gameState {
 	}
 	
 	public static bool setScore(int level, int singer, float newScore){
-		bool ret = getLevel(level).setScore(singer, newScore);
+		bool ret = getLevel(currentLevel).setScore(singer, newScore);
+		Debug.Log("Setting score at level " + currentLevel + " : " + newScore);
 		updateTotals();
 		return ret;
 	}

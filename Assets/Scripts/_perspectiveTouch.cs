@@ -39,7 +39,9 @@ public class _perspectiveTouch : MonoBehaviour {
 		
 			Touch t = Input.GetTouch(0);
 			Vector3 p = camera.ScreenToViewportPoint(new Vector3(t.position.x, t.position.y, 50)); 
-			Vector3 w = camera.ViewportToWorldPoint(p); 
+			Vector3 w = camera.ViewportToWorldPoint(p);
+			
+			Debug.Log("Touch registered: " + touchpoint); 
 			
 			if(touchpoint != w){
 				touchpoint = w;

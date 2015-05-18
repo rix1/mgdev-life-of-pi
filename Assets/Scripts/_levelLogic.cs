@@ -32,6 +32,8 @@ public class _levelLogic : MonoBehaviour {
 		singers.Add(singer2);
 		singers.Add(singer3);
 		
+		_gameState.setCurrentLevel(levelID);
+		
 		_gameState.setScore(levelID, 1, singerScore1);
 		_gameState.setScore(levelID, 2, singerScore2);
 		_gameState.setScore(levelID, 3, singerScore3);
