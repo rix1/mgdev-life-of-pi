@@ -36,6 +36,7 @@ public class _pausebutton : MonoBehaviour {
 		GameObject.Find("buttons").gameObject.GetComponent<_buttonController>().activateButtons(!isPaused);
 		
 		if(GameObject.Find("Music") != null){
+			//only checking g3_score
 			GameObject.Find("Score").GetComponent<g3_Score>().playing = !isPaused;
 			if(isPaused){
 				GameObject.Find("Music").GetComponent<AudioSource>().Pause();

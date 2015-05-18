@@ -10,6 +10,7 @@ TagManager:
   - Dialog
   - Singer1
   - Rhythmify_Music
+  - NextLevel
   layers:
   - Default
   - TransparentFX
