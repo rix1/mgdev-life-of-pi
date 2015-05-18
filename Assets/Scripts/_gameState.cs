@@ -22,6 +22,10 @@ public class _gameState {
 	private static LevelScore lvl3 = new LevelScore();
 	
 	private static bool started = false;
+
+	public static bool isComplete(){
+		return getLevel(currentLevel).isComplete();
+	}
 	
 	public static Vector3 getPlayerPos(int level){
 		
@@ -38,6 +42,10 @@ public class _gameState {
 			started = true;	
 			return startPos;
 		}
+	}
+	
+	public static string getCurrentLevelString(){
+		return "Level" + currentLevel;
 	}
 	
 	public static void setCurrentLevel(int id){

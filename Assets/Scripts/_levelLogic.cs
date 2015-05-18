@@ -38,6 +38,12 @@ public class _levelLogic : MonoBehaviour {
 		_gameState.setScore(levelID, 2, singerScore2);
 		_gameState.setScore(levelID, 3, singerScore3);
 		
+		if(_gameState.isComplete()){
+			GameObject.Find("Nextlevel").SetActive(true);
+		}else{
+			GameObject.Find("Nextlevel").SetActive(false);
+		}
+		
 		setLight();
 	}
 	
@@ -58,6 +64,11 @@ public class _levelLogic : MonoBehaviour {
 	
 	public bool setScore(int gameMode, float score){
 		return _gameState.setScore(levelID, gameMode, score);
+	}
+	
+	public void goToNext(){
+		_gameState.currentLevel++;
+		Application.LoadLevel(_gameState.getCurrentLevelString());
 	}
 	
     void setLight() {
