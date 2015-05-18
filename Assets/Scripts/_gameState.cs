@@ -21,7 +21,15 @@ public class _gameState {
 	
 	private static bool started = false;
 	
-	public static Vector3 getPlayerPos(){
+	public static Vector3 getPlayerPos(int level){
+		
+		switch (level)
+		{
+			case 1: return new Vector3(-28.0f, -10.4f,0);
+			case 2: return new Vector3(-9.0f, -3.2f,0);
+			default: return startPos;
+		}
+		
 		if(started){
 			return playerPos;
 		}else{

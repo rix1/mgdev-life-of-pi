@@ -17,7 +17,6 @@ namespace Rhythmify {
         public void Start() {
             if (gameObject.tag != "Rhythmify_Music") {
                 Debug.LogError("GameObjects with a MusicWrapper component must be tagged \"Rhythmify_Music\".");
-                Debug.Break();
             }
 
             audioSource = gameObject.GetComponent<AudioSource>();

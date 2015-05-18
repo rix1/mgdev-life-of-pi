@@ -19,6 +19,10 @@ public class _levelLogic : MonoBehaviour {
 	
 	private List<GameObject> singers = new List<GameObject>();
 	
+	public int getLevelID(){
+		return levelID;
+	}
+	
 	private LevelScore lvl1 = new LevelScore();
 	
 	// Use this for initialization

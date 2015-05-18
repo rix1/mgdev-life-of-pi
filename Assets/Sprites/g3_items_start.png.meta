@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4c331e256e0834585bd77ecfe1807b3d
-timeCreated: 1431520331
+timeCreated: 1431932701
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -66,20 +66,20 @@ TextureImporter:
     - name: g3_items_start_buttonlarge
       rect:
         serializedVersion: 2
-        x: 60
-        y: 61
-        width: 52
-        height: 52
+        x: 59
+        y: 60
+        width: 54
+        height: 55
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: g3_items_start_buttonsmall
       rect:
         serializedVersion: 2
-        x: 164
-        y: 67
-        width: 40
-        height: 40
+        x: 162
+        y: 65
+        width: 44
+        height: 43
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

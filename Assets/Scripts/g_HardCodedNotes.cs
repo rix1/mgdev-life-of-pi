@@ -51,7 +51,7 @@ public class g_HardCodedNotes : MonoBehaviour {
 		if(wrongNotes){
 			int tull = Random.Range(0,100);
 			if(tull < wrongTreshhold){
-				drawWrong(random);
+				drawWrong(random	);
 			}else{
 				drawNote(random);
 			}
