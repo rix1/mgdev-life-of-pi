@@ -20,6 +20,8 @@ public class _levelLogic : MonoBehaviour {
 	public bool clickable;
 	public bool clickable2;
 	
+	public bool completed = false;
+	
 	private List<GameObject> singers = new List<GameObject>();
 	
 	public int getLevelID(){
@@ -45,21 +47,14 @@ public class _levelLogic : MonoBehaviour {
 		_gameState.setScore(levelID, 2, singerScore2);
 		_gameState.setScore(levelID, 3, singerScore3);
 		
-		if(_gameState.isComplete()){
-			GameObject.Find("Nextlevel").SetActive(true);
-		}else{
+		if(!_gameState.isComplete()){
 			GameObject.Find("Nextlevel").SetActive(false);
 		}
 		
-		if(_gameState.currentLevel >1){
-			GameObject.Find("PrevLevel").SetActive(true);
-		}else{
+		if(!(_gameState.currentLevel >1)){
 			GameObject.Find("PrevLevel").SetActive(false);
 		}
-		
 		setLight();
-		
-		
 	}
 	
 	// Update is called once per frame

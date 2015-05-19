@@ -334,8 +334,11 @@ MonoBehaviour:
   red: {fileID: 123920, guid: a6f6be2101823479781c2a2d1f5793a5, type: 2}
   yellow: {fileID: 104180, guid: 56ef94467a4da46feaebe5eede03072e, type: 2}
   wrong: {fileID: 131712, guid: a67bad84cdbba44cbbad7551c3e14f07, type: 2}
-  wrongTreshhold: 0
-  wrongNotes: 0
+  wrongTreshhold: 30
+  wrongNotes: 1
+  song1: {fileID: 8300000, guid: 749fb3fbd28974a3686fd9b0010df75b, type: 3}
+  song2: {fileID: 8300000, guid: 5993f4c309dd1462b9cfdfcaffcd864b, type: 3}
+  song3: {fileID: 8300000, guid: 90816a06c10a24d02943aff7af18ce17, type: 3}
 --- !u!82 &1300108920
 AudioSource:
   m_ObjectHideFlags: 0
@@ -345,7 +348,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 07792f2c3eac240be921831cdc283c44, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 370cae641fe7742d9b7126f4dea2a687, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

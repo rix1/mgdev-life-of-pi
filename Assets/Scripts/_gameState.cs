@@ -26,7 +26,7 @@ public class _gameState {
 	private static bool started = false;
 
 	public static bool isComplete(){
-		Debug.Log("Level: " + currentLevel + " is complete: " + getLevel(currentLevel).isComplete());
+// 		Debug.Log("Level: " + currentLevel + " is complete: " + getLevel(currentLevel).isComplete());
 		return getLevel(currentLevel).isComplete();
 	}
 	
@@ -85,6 +85,10 @@ public class _gameState {
 	
 	public static void updateTotals(){
 		// TODO.
+	}
+	
+	public static AudioSource getNote(int noteNumber){
+		return getLevel(currentLevel).getNote(noteNumber);
 	}
 	
 	public static void completed(int singer){

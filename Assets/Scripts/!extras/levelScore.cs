@@ -16,9 +16,6 @@ public class LevelScore {
 	public GameScore g2;
 	public GameScore g3;
 	
-	
-	
-	
 	public LevelScore(){
 		id = scoreElements;
 		scoreElements++;
@@ -61,6 +58,18 @@ public class LevelScore {
 		total += g3.score;
 		
 		return total;
+	}
+	
+	public AudioSource getNote(int note){
+		switch (note)
+		{
+			case 1: break;
+			case 2: break;
+			case 3: break;
+			case 4: break;
+			default: break;
+		}
+		return null;
 	}
 	
 	public float getScore(int singer){

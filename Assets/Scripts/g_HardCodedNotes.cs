@@ -12,7 +12,19 @@ public class g_HardCodedNotes : MonoBehaviour {
 	
 	public bool wrongNotes = false;
 	
-	private float[] splits = {
+	public AudioClip song1;
+	public AudioClip song2;
+	public AudioClip song3;
+	
+	private float[] splits; 
+	
+	private float[] songSplit1 = {
+1.4f,2.184f,2.174f,2.169f,2.215f,1.056f,.377f,1.783f,.448f,.440f,1.248f,.408f,1.816f,.482f,.710f,1.016f,.382f,1.690f,.472f,.472f,1.400f,.385f,1.671f,.518f,.400f,.271f,1.016f,.452f,.724f,.432f,.272f,.312f,.423f,.360f,.328f,.792f,.305f,1.055f,.441f,.295f,.344f,.400f,.713f,.704f,.328f,.391f,.407f,1.008f,.304f,.351f,.384f,.313f,.760f,.199f,.516f,.413f,.264f,.422f,.337f,.239f,.399f,.315f,.334f
+	};
+	private float[] songSplit2 = {
+1.4f,2.184f,2.174f,2.169f,2.215f,1.056f,.377f,1.783f,.448f,.440f,1.248f,.408f,1.816f,.482f,.710f,1.016f,.382f,1.690f,.472f,.472f,1.400f,.385f,1.671f,.518f,.400f,.271f,1.016f,.452f,.724f,.432f,.272f,.312f,.423f,.360f,.328f,.792f,.305f,1.055f,.441f,.295f,.344f,.400f,.713f,.704f,.328f,.391f,.407f,1.008f,.304f,.351f,.384f,.313f,.760f,.199f,.516f,.413f,.264f,.422f,.337f,.239f,.399f,.315f,.334f
+	};
+	private float[] songSplit3 = {
 1.4f,2.184f,2.174f,2.169f,2.215f,1.056f,.377f,1.783f,.448f,.440f,1.248f,.408f,1.816f,.482f,.710f,1.016f,.382f,1.690f,.472f,.472f,1.400f,.385f,1.671f,.518f,.400f,.271f,1.016f,.452f,.724f,.432f,.272f,.312f,.423f,.360f,.328f,.792f,.305f,1.055f,.441f,.295f,.344f,.400f,.713f,.704f,.328f,.391f,.407f,1.008f,.304f,.351f,.384f,.313f,.760f,.199f,.516f,.413f,.264f,.422f,.337f,.239f,.399f,.315f,.334f
 	};
 	
@@ -29,8 +41,34 @@ public class g_HardCodedNotes : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		setLevel();
 	}
 	
+	void setLevel(){
+		int lvl = _gameState.currentLevel;
+			
+		switch (lvl)
+		{
+			case 1:
+			splits = songSplit1;
+			setAudio(song1); 
+			break;
+			case 2:
+			splits = songSplit2;
+			setAudio(song2); 
+			break;
+			case 3:
+			splits = songSplit3;
+			setAudio(song3); 
+			break;
+			default: break;
+		}   
+	}
+	
+	void setAudio(AudioClip aud){
+		AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+	    audioSource.clip = aud; 
+	}
 	
 	void Update(){
 		total += Time.deltaTime;
