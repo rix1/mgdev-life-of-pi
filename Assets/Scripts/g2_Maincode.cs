@@ -25,6 +25,6 @@ public class g2_Maincode : MonoBehaviour {
 		int level = GameObject.Find("Score").GetComponent<g2_Score>().levelID;
 		int gamemode = GameObject.Find("Score").GetComponent<g2_Score>().gameMode;
 		
-		return _gameState.setScore(level, gamemode, score);
+		return _gameState.setScore(gamemode, score);
 	}
 }

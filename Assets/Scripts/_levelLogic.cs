@@ -30,6 +30,8 @@ public class _levelLogic : MonoBehaviour {
 	
 	private LevelScore lvl1 = new LevelScore();
 	
+	public bool delete = false;
+	
 	// Use this for initialization
 	void Start () {
 		
@@ -40,15 +42,13 @@ public class _levelLogic : MonoBehaviour {
 		singers.Add(singer2);
 		singers.Add(singer3);
 		
-		
+		_gameState.loadState();
 		_gameState.setCurrentLevel(levelID);
-		
-		_gameState.setScore(levelID, 1, singerScore1);
-		_gameState.setScore(levelID, 2, singerScore2);
-		_gameState.setScore(levelID, 3, singerScore3);
 		
 		if(!_gameState.isComplete()){
 			GameObject.Find("Nextlevel").SetActive(false);
+		}else if(_gameState.currentLevel == 3){
+			GameObject.Find("masterLight").GetComponent<Light>().intensity = 0.5f;
 		}
 		
 		if(!(_gameState.currentLevel >1)){
@@ -57,9 +57,26 @@ public class _levelLogic : MonoBehaviour {
 		setLight();
 	}
 	
+    void OnApplicationQuit() {
+		_gameState.saveState();
+    }
+	
 	// Update is called once per frame
 	void Update () {
 		Time.timeScale = 1.0f;
+		
+		if(delete){
+			_gameState.reset();
+			Debug.Log("Game RESET");
+			delete = false;
+		}
+		
+		if(_gameState.currentLevel == 3 && _gameState.isComplete()){
+			GameObject.Find("masterLight").GetComponent<Light>().intensity = 0.3f;
+			Debug.Log("LEEEROOY: " + _gameState.currentLevel + " : " + _gameState.isComplete());
+		}else{
+			Debug.Log("JEEEEEEEENKINS: " + _gameState.currentLevel + " : " + _gameState.isComplete());
+		}
 	}
 	
 	public void loadG1(){

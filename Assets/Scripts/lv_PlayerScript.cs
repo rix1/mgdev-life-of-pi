@@ -36,6 +36,10 @@ public class lv_PlayerScript: MonoBehaviour {
     public Sprite leftSprite;
     public Sprite rightSprite;
     
+    public float yMax = -4.2f;
+    public float yMin = -6.5f;
+    
+    
     public int getDir() {
         if (moving) {
             return pos ? 1 : -1;
@@ -155,7 +159,7 @@ public class lv_PlayerScript: MonoBehaviour {
         
         goTo_new = GameObject.Find("Touch").GetComponent < _perspectiveTouch > ().getTouchPoint();
         
-        if (goTo_new.y > -6.5f && goTo_new.y < -4.2f) {
+        if (goTo_new.y > yMin && goTo_new.y < yMax) {
 
             if (goTo_new != goTo_old) {
                 // Move in new direction

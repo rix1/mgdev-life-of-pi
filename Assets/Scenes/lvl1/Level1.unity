@@ -265,6 +265,7 @@ Transform:
   - {fileID: 320673372}
   - {fileID: 1366507137}
   - {fileID: 1258365322}
+  - {fileID: 1065284656}
   m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!1 &194797546
@@ -4760,6 +4761,82 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1029875406}
+--- !u!1 &1065284655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 170856, guid: 78e2043d83bac4620914b442ae26f58a, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1065284656}
+  - 108: {fileID: 1065284658}
+  - 114: {fileID: 1065284657}
+  m_Layer: 0
+  m_Name: masterLight
+  m_TagString: Singer1
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1065284656
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 489798, guid: 78e2043d83bac4620914b442ae26f58a, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1065284655}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.6599998, y: 6.4000001, z: -9.31000042}
+  m_LocalScale: {x: .5, y: .5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 126602658}
+  m_RootOrder: 4
+--- !u!114 &1065284657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1065284655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a64619fd20d7d4e0584c8c61932d5304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max: 10
+  min: 5
+  rate: .0199999996
+--- !u!108 &1065284658
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 10840210, guid: 78e2043d83bac4620914b442ae26f58a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1065284655}
+  m_Enabled: 1
+  serializedVersion: 6
+  m_Type: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0
+  m_Range: 15.9499998
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_NormalBias: .400000006
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_BounceIntensity: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_AreaSize: {x: 1, y: 1}
 --- !u!1 &1069320329
 GameObject:
   m_ObjectHideFlags: 0
@@ -5744,6 +5821,7 @@ MonoBehaviour:
   clickable: 0
   clickable2: 0
   completed: 0
+  delete: 0
 --- !u!1 &1636150197
 GameObject:
   m_ObjectHideFlags: 0

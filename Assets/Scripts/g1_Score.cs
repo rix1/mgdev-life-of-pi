@@ -57,7 +57,7 @@ public class g1_Score : MonoBehaviour {
 	}
 	
 	private bool setScore(){
-		return _gameState.setScore(levelID, GameMode, gameScore);
+		return _gameState.setScore(GameMode, gameScore);
 	}
 	
 	void isPlaying(){
