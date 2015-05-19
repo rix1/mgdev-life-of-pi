@@ -17,6 +17,9 @@ public class _levelLogic : MonoBehaviour {
 	public float singerScore2;
 	public float singerScore3;
 	
+	public bool clickable;
+	public bool clickable2;
+	
 	private List<GameObject> singers = new List<GameObject>();
 	
 	public int getLevelID(){
@@ -28,9 +31,13 @@ public class _levelLogic : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
+		clickable = true;
+		clickable2 = true;
+		
 		singers.Add(singer1);
 		singers.Add(singer2);
 		singers.Add(singer3);
+		
 		
 		_gameState.setCurrentLevel(levelID);
 		
@@ -42,6 +49,12 @@ public class _levelLogic : MonoBehaviour {
 			GameObject.Find("Nextlevel").SetActive(true);
 		}else{
 			GameObject.Find("Nextlevel").SetActive(false);
+		}
+		
+		if(_gameState.currentLevel >1){
+			GameObject.Find("PrevLevel").SetActive(true);
+		}else{
+			GameObject.Find("PrevLevel").SetActive(false);
 		}
 		
 		setLight();
@@ -66,9 +79,23 @@ public class _levelLogic : MonoBehaviour {
 		return _gameState.setScore(levelID, gameMode, score);
 	}
 	
+	public void goToPrev(){
+		if(clickable2){
+			if(_gameState.currentLevel >1){
+				Application.LoadLevel("Level" + (_gameState.currentLevel- 1));
+			}else{
+				Debug.Log("Already in the first level!");
+			}
+		}
+		clickable2 = false;
+	}
+	
 	public void goToNext(){
-		_gameState.currentLevel++;
-		Application.LoadLevel(_gameState.getCurrentLevelString());
+		if(clickable){
+			Debug.Log("Starting next level: "+ "Level" + _gameState.currentLevel);
+			Application.LoadLevel("Level" + (_gameState.currentLevel+1));
+		}
+		clickable = false;
 	}
 	
     void setLight() {

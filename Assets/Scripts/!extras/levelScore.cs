@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
+
 
 public class LevelScore {
 	
@@ -8,9 +10,13 @@ public class LevelScore {
 	public int id;
 	public float score;
 	
+	public Vector3 lastPosition; 
+	
 	public GameScore g1;
 	public GameScore g2;
 	public GameScore g3;
+	
+	
 	
 	
 	public LevelScore(){
@@ -24,7 +30,7 @@ public class LevelScore {
 	public bool isComplete(){
 		bool complete = true;
 		
-		if(!g1.completed || !g2.completed || g3.completed){
+		if(!g1.completed || !g2.completed || !g3.completed){
 			complete = false;	
 		}
 		return complete;
@@ -37,6 +43,10 @@ public class LevelScore {
 	// We probably shouldn't use this one
 	public void updateScore(int singer, float score){
 		getSinger(singer).score += score;
+	}
+	
+	public void completed(int singer){
+		getSinger(singer).completed = true;
 	}
 	
 	public void resetScore(int singer){

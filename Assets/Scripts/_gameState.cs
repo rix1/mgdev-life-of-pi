@@ -11,8 +11,10 @@ public class _gameState {
 	
 	**/
 	
-	private static Vector3 startPos = new Vector3(-9.0f, -3.2f,0); 
-	private static Vector3 playerPos;
+// 	private static Vector3 startPos = new Vector3(-9.0f, -3.2f,0); 
+	private static Vector3 startPos = new Vector3(-28.0f, -10.4f,0); 
+	
+	private static Vector3 playerPos = startPos;
 	public static float playerScore;
 	
 	public static int currentLevel = 1; // First level by default
@@ -24,23 +26,31 @@ public class _gameState {
 	private static bool started = false;
 
 	public static bool isComplete(){
+		Debug.Log("Level: " + currentLevel + " is complete: " + getLevel(currentLevel).isComplete());
 		return getLevel(currentLevel).isComplete();
 	}
 	
-	public static Vector3 getPlayerPos(int level){
+	public static Vector3 getPlayerPos(){
 		
-		switch (level)
+		Debug.Log("Getting current position: " + currentLevel);
+		Vector3 nil = new Vector3(0,0,0);
+		
+		switch (currentLevel)
 		{
-			case 1: return new Vector3(-28.0f, -10.4f,0);
-			case 2: return new Vector3(-9.0f, -3.2f,0);
-			default: return startPos;
-		}
-		
-		if(started){
-			return playerPos;
-		}else{
-			started = true;	
-			return startPos;
+			case 1: 
+				if(lvl1.lastPosition == nil){
+					Debug.Log("RETURNING LEVEL 1 Default");
+					return new Vector3(-28.0f, -10.4f,0);
+				}else return lvl1.lastPosition;
+			case 2: 
+				if(lvl2.lastPosition == nil){
+					return new Vector3(-9.0f, -3.2f,0);
+				}else return lvl2.lastPosition;
+			case 3:
+				if(lvl3.lastPosition == nil){
+					return new Vector3(-9.0f, -3.2f,0);
+				}else return lvl3.lastPosition;
+			default: return playerPos;
 		}
 	}
 	
@@ -53,8 +63,8 @@ public class _gameState {
 	}
 	
 	public static void setPlayerPos(Vector3 newPos){
+		getLevel(currentLevel).lastPosition = newPos;
 		playerPos = newPos;
-		started = true;
 	}
 	
 	public static float getNormalizedScore(){
@@ -75,6 +85,10 @@ public class _gameState {
 	
 	public static void updateTotals(){
 		// TODO.
+	}
+	
+	public static void completed(int singer){
+		getLevel(currentLevel).completed(singer);
 	}
 	
 	private static LevelScore getLevel(int id){

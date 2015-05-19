@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
+
 
 public class GameScore {
 	
@@ -17,7 +19,6 @@ public class GameScore {
 	
 	
 	public bool setScore(float score){
-		completed = true;
 		if(this.score > score){
 			return false;
 		}else{

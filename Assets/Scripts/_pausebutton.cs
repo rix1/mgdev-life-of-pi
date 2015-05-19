@@ -51,7 +51,7 @@ public class _pausebutton : MonoBehaviour {
 
 		if(isPaused){			
 			if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height / 2 - 60, 100, 40),"Back", customButton)){
-				Application.LoadLevel(levelName);
+				Application.LoadLevel(_gameState.getCurrentLevelString());
 			}
 			if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height / 2 + 00, 100, 40),"Continue", customButton)){
 				isPaused = !isPaused;

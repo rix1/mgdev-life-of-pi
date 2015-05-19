@@ -91,6 +91,7 @@ public class g2_Timer : MonoBehaviour {
 			Application.LoadLevel ("g2_GameOver");
 		} 
 		else {
+			_gameState.completed(2);
 			g2_Maincode.setScore();
 			g2_Maincode.score = 0;
 			Application.LoadLevel ("g2_GameOverWon");

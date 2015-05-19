@@ -66,6 +66,7 @@ public class g3_Score : MonoBehaviour {
 		if (mistakes >= maxMistakes) {
 			Application.LoadLevel("g3_GameOver");
 		}else{
+			_gameState.completed(levelID);
 			if(setScore()){
 				Debug.Log("NEW HIGHSCORE!");
 			}

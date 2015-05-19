@@ -72,6 +72,7 @@ public class g1_Score : MonoBehaviour {
 		if (mistakes >= maxMistakes) {
 			Application.LoadLevel("g1_GameOver");
 		}else{
+			_gameState.completed(levelID);
 			if(setScore()){
 				Debug.Log("NEW HIGHSCORE!");
 			}

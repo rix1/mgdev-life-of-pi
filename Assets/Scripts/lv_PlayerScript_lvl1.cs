@@ -47,7 +47,7 @@ public class lv_PlayerScript_lvl1: MonoBehaviour {
     // Use this for initialization
     void Start() {
         
-        transform.localPosition = _gameState.getPlayerPos(GameObject.Find("Scripts").GetComponent<_levelLogic>().getLevelID()); 
+        transform.localPosition = _gameState.getPlayerPos(); 
         
         goTo_new = new Vector3(0, 0, 0);
         goTo_old = new Vector3(0, 0, 0);
