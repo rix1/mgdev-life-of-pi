@@ -58,11 +58,13 @@ public class _levelLogic : MonoBehaviour {
 		}
 		
 		setLight();
+		
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		Time.timeScale = 1.0f;
 	}
 	
 	public void loadG1(){

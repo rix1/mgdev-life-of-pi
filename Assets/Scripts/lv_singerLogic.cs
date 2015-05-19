@@ -56,7 +56,7 @@ public class lv_singerLogic : MonoBehaviour {
 		Debug.Log("Displaying dialogs: "+ display);
 		
 		foreach (GameObject element in dialogObjects){
-			Debug.Log("Setting " + element.name + " to " + display);
+// 			Debug.Log("Setting " + element.name + " to " + display);
 			element.SetActive(display);
 		}
 	}

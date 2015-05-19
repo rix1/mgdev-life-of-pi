@@ -20,6 +20,7 @@ public class _perspectiveTouch : MonoBehaviour {
 			sprite.sortingOrder = sortingOrder;
 			sprite.sortingLayerName = LAYER_NAME;
 		}
+		clicked = true;
 	}
 
 	void Update(){

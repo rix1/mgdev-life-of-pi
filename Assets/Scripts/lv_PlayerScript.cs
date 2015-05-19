@@ -43,6 +43,7 @@ public class lv_PlayerScript: MonoBehaviour {
             return 0;
         }
     }
+    
 
     // Use this for initialization
     void Start() {
@@ -55,9 +56,15 @@ public class lv_PlayerScript: MonoBehaviour {
         debug = false;
         prevDirection = true;
     }
+    
+    void Destroy(){
+        Debug.Log("SOMEONE IS GOING TO DIE");
+    }
 
     void move(Vector3 currentPos, Vector3 moveTo) {
         //      transform.position = moveTo;
+
+        Debug.Log("I WANNA MOVE");
 
         float inputX = 1;
         float inputY = 0;
@@ -73,6 +80,8 @@ public class lv_PlayerScript: MonoBehaviour {
         movement = new Vector2(speed.x * inputX, speed.y * inputY);
         moving = true;
         goTo_old = moveTo;
+        
+        Debug.Log("movement ddata: " + movement);
 
     }
    
@@ -124,6 +133,8 @@ public class lv_PlayerScript: MonoBehaviour {
         } else {
             GetComponent < Rigidbody2D > ().gravityScale = 0;
         }
+
+        GetComponent < Rigidbody2D > ().velocity = movement;
     }
 
     // Left movevemt is true, right is false
@@ -146,8 +157,6 @@ public class lv_PlayerScript: MonoBehaviour {
         
         if (goTo_new.y > -6.5f && goTo_new.y < -4.2f) {
 
-            // Application.LoadLevel("GameMode3");
-
             if (goTo_new != goTo_old) {
                 // Move in new direction
                 move(currentPosition, goTo_new);
@@ -159,10 +168,9 @@ public class lv_PlayerScript: MonoBehaviour {
 
     void FixedUpdate() {
         // 5 - Move the game object
-        GetComponent < Rigidbody2D > ().velocity = movement;
+//         Debug.Log("MOVING 4 REAL" + movement) ;
     }
 
     void OnTriggerEnter2D(Collider2D otherCollider) {
-        Debug.Log("COLLISON");
     }
 }
