@@ -830,9 +830,9 @@ MonoBehaviour:
   gameOver: 0
   neg: 0
   pos: 0
-  decreaseTimer: -.0500000007
-  negTimer: -.0500000007
-  posTimer: .200000003
+  decreaseTimer: -.0799999982
+  negTimer: -.0350000001
+  posTimer: .150000006
 --- !u!212 &1880959102
 SpriteRenderer:
   m_ObjectHideFlags: 0

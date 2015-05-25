@@ -4907,8 +4907,10 @@ MonoBehaviour:
   singerScore3: 0
   clickable: 0
   clickable2: 0
+  next: {fileID: 1312761329}
   completed: 0
   delete: 0
+  deleted: 0
 --- !u!1 &1637097441
 GameObject:
   m_ObjectHideFlags: 0

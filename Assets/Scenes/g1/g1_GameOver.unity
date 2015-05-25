@@ -146,7 +146,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You hit a bad note, try again
+  m_Text: You hit a bad note or made too many mistakes
 --- !u!222 &359483985
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -261.000061, y: 98.3000183}
+  m_AnchoredPosition: {x: -261.000061, y: 94.4000015}
   m_SizeDelta: {x: 96.6999969, y: 32.9000015}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &854098323
@@ -655,7 +655,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -261, y: -6.80000019}
+  m_AnchoredPosition: {x: -261, y: -26.5}
   m_SizeDelta: {x: 96.6999969, y: 18}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1745148413

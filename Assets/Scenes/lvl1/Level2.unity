@@ -3348,8 +3348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44743d5cb32ca431f9706ef2957ac457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max: .699999988
-  min: .5
+  max: 1
+  min: .800000012
   rate: .00200000009
 --- !u!114 &624694869
 MonoBehaviour:
@@ -4219,7 +4219,7 @@ GameObject:
   - 4: {fileID: 1312761330}
   - 58: {fileID: 1312761331}
   m_Layer: 0
-  m_Name: Nextlevel
+  m_Name: Nextlevel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4232,7 +4232,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1312761329}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.9899998, y: -.200000003, z: 9.06052017}
+  m_LocalPosition: {x: 11.9899998, y: 1.66999996, z: 9.06052017}
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children:
   - {fileID: 75362983}
@@ -4502,8 +4502,10 @@ MonoBehaviour:
   singerScore3: 0
   clickable: 0
   clickable2: 0
+  next: {fileID: 1312761329}
   completed: 0
   delete: 0
+  deleted: 0
 --- !u!1 &1637097441
 GameObject:
   m_ObjectHideFlags: 0

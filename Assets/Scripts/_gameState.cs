@@ -55,7 +55,7 @@ public class _gameState {
 		float lvl3Score2 = PlayerPrefs.GetFloat("lvl3Score2", 0);		
 		float lvl3Score3 = PlayerPrefs.GetFloat("lvl3Score3", 0);
 		
-		bool complete = true;
+		bool complete = false;
 		
 		setScore(1,1, lvl1Score1, complete);
 		setScore(1,2, lvl1Score2, complete);

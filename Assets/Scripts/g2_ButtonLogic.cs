@@ -7,6 +7,8 @@ public class g2_ButtonLogic : MonoBehaviour {
 	public List<GameObject> patterns = new List<GameObject>();
 
 	public int WhatButton = 0;
+	public Sprite downSprite;
+	public Sprite upSprite;
 	public GameObject sound;
 
 	public GameObject particleEffect;
@@ -19,6 +21,7 @@ public class g2_ButtonLogic : MonoBehaviour {
 
 	void Start () {
 		setCurrentPattern();
+		upSprite = GetComponent<SpriteRenderer>().sprite;
 	}
 
 	void setCurrentPattern(){

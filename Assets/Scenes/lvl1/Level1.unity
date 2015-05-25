@@ -2634,7 +2634,7 @@ GameObject:
   - 4: {fileID: 391012226}
   - 58: {fileID: 391012228}
   m_Layer: 0
-  m_Name: Nextlevel
+  m_Name: Nextlevel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5820,8 +5820,10 @@ MonoBehaviour:
   singerScore3: 50
   clickable: 0
   clickable2: 0
+  next: {fileID: 391012225}
   completed: 0
   delete: 0
+  deleted: 0
 --- !u!1 &1636150197
 GameObject:
   m_ObjectHideFlags: 0
