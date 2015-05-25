@@ -134,7 +134,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: -.310000002}
   serializedVersion: 2
-  m_Size: {x: 3.51999998, y: 3.04999995}
+  m_Size: {x: 3.57999992, y: 4.98000002}
 --- !u!50 &220738206
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -176,7 +176,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300004, guid: 78bc671e4881f4594879ee5dd38b6584, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 56438f0b8ca9741068858a0490c57bd8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &220738208
 Transform:
@@ -334,7 +334,7 @@ MonoBehaviour:
   red: {fileID: 123920, guid: a6f6be2101823479781c2a2d1f5793a5, type: 2}
   yellow: {fileID: 104180, guid: 56ef94467a4da46feaebe5eede03072e, type: 2}
   wrong: {fileID: 131712, guid: a67bad84cdbba44cbbad7551c3e14f07, type: 2}
-  wrongTreshhold: 30
+  wrongTreshhold: 20
   wrongNotes: 1
   song1: {fileID: 8300000, guid: 749fb3fbd28974a3686fd9b0010df75b, type: 3}
   song2: {fileID: 8300000, guid: 5993f4c309dd1462b9cfdfcaffcd864b, type: 3}
@@ -589,7 +589,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: -.349999994}
   serializedVersion: 2
-  m_Size: {x: 3.31999993, y: 2.91000009}
+  m_Size: {x: 3.5, y: 5.01000023}
 --- !u!50 &1588082585
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -631,7 +631,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 78bc671e4881f4594879ee5dd38b6584, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 56438f0b8ca9741068858a0490c57bd8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1588082587
 Transform:
@@ -747,7 +747,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: -.239999995}
   serializedVersion: 2
-  m_Size: {x: 3.18000007, y: 2.92000008}
+  m_Size: {x: 3.61999989, y: 4.48999977}
 --- !u!50 &1947697319
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -789,7 +789,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 78bc671e4881f4594879ee5dd38b6584, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 56438f0b8ca9741068858a0490c57bd8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1947697321
 Transform:

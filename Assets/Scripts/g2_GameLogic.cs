@@ -38,6 +38,18 @@ public class g2_GameLogic : MonoBehaviour {
 		drawAll();
 	}
 	
+	public void increment(){
+		GameObject mask = GameObject.Find("mask");
+		Vector3 plus = new Vector3(1,0,0);
+		mask.transform.position += plus;
+	}
+	
+	public void reset(){
+		GameObject mask = GameObject.Find("mask");
+		Vector3 plus = new Vector3(-2.6f,3.5f,0);
+		mask.transform.localPosition = plus;
+	}
+	
 	void drawTwo(){
 		drawPattern(currentPattern);
 		drawPattern(nextPattern);

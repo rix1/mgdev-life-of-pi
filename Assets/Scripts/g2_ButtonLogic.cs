@@ -64,11 +64,14 @@ public class g2_ButtonLogic : MonoBehaviour {
 					GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				streakCounter++;
+				Camera.main.GetComponent<g2_GameLogic>().increment();
 			} else {
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				
 				GameObject.Find("Timer").GetComponent<g2_Timer>().setNeg();
 				streakCounter = 0;
+			Camera.main.GetComponent<g2_GameLogic>().reset();
+				
 			}
 		}
 
@@ -77,10 +80,13 @@ public class g2_ButtonLogic : MonoBehaviour {
 				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				streakCounter++;
+				Camera.main.GetComponent<g2_GameLogic>().increment();
 			} else {
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				
 				GameObject.Find("Timer").GetComponent<g2_Timer>().setNeg();
+			Camera.main.GetComponent<g2_GameLogic>().reset();
+				
 				streakCounter = 0;
 			}
 		}
@@ -90,9 +96,12 @@ public class g2_ButtonLogic : MonoBehaviour {
 				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				streakCounter++;
+				Camera.main.GetComponent<g2_GameLogic>().increment();
 			} else {
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				GameObject.Find("Timer").GetComponent<g2_Timer>().setNeg();
+			Camera.main.GetComponent<g2_GameLogic>().reset();
+				
 				streakCounter = 0;
 			}
 		}
@@ -102,17 +111,21 @@ public class g2_ButtonLogic : MonoBehaviour {
 				GameObject.Instantiate (sound, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				streakCounter++;
+				Camera.main.GetComponent<g2_GameLogic>().increment();
 			} else {
 				GameObject.Instantiate (particleEffect, transform.position + new Vector3 (0, 0, 0), Quaternion.Euler (0, 0, 0));
 				
 				GameObject.Find("Timer").GetComponent<g2_Timer>().setNeg();
 				streakCounter = 0;
+			Camera.main.GetComponent<g2_GameLogic>().reset();
+				
 			}
 		}
 		
 		if(streakCounter < 4){
 			
 		}else{
+			Camera.main.GetComponent<g2_GameLogic>().reset();
 			
 			// Someone just succeeded. We should reward them with a score, 
 			g2_Maincode.score+=1;

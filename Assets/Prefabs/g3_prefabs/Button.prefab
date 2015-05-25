@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.77470112, y: 1.01999998, z: 0}
+  m_LocalPosition: {x: -1.79999995, y: -3.70000005, z: 29.5599995}
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -42,7 +42,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 3.33999991, y: 4}
+  m_Size: {x: 3.54999995, y: 4.25}
 --- !u!114 &11403000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -56,6 +56,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patterns: []
   WhatButton: 1
+  downSprite: {fileID: 0}
+  upSprite: {fileID: 0}
   sound: {fileID: 119824, guid: 58dc9feed20e14c8ea49327e54096bac, type: 2}
   particleEffect: {fileID: 148868, guid: 51bd2469c76d7413aa50e15e83088d4e, type: 2}
 --- !u!212 &21254370
